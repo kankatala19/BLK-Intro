@@ -16,8 +16,6 @@ export const siteConfig = {
       hasDropdown: true,
     },
     { label: "Industries", path: "/industries" },
-    { label: "Projects", path: "/projects" },
-    { label: "Insights", path: "/insights" },
     { label: "Contact Us", path: "/contact" },
   ],
 
@@ -173,86 +171,6 @@ export const siteConfig = {
     hireCta: "Hire Us",
   },
 
-  // Technical Demonstrations / Featured Projects (clearly labeled demonstrations)
-  demonstrations: [
-    {
-      id: "nexus-crm",
-      title: "Nexus Enterprise CRM & Workflow Core",
-      type: "Technical Demonstration",
-      category: "Software Development",
-      description:
-        "Demonstration architecture of a high-throughput CRM and internal ERP pipeline featuring real-time client interaction tracking, role-based controls, and automated reporting.",
-      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
-      metrics: [
-        { label: "Data Pipeline", value: "Real-Time" },
-        { label: "Security Level", value: "Role-Based RBAC" },
-        { label: "Audit Accuracy", value: "100%" },
-      ],
-      highlights: [
-        "Modular pipeline for custom lead and contract workflows",
-        "Automated reconciliation with internal financial ledgers",
-        "Responsive cross-platform interface with refined styling",
-      ],
-    },
-    {
-      id: "pulse-analytics",
-      title: "Pulse AI Telemetry & Predictive Analytics",
-      type: "Technical Demonstration",
-      category: "AI & ML",
-      description:
-        "An applied machine learning prototype showcasing automated event clustering, anomaly detection across operational metrics, and contextual natural language querying.",
-      technologies: ["React", "Python", "Vector Embeddings", "FastAPI", "TimescaleDB"],
-      metrics: [
-        { label: "Query Speed", value: "< 35ms" },
-        { label: "Detection Rate", value: "Automated" },
-        { label: "Model Architecture", value: "Hybrid Embeddings" },
-      ],
-      highlights: [
-        "Semantic search powered by vector database indexing",
-        "Automated visual anomaly flags on live operational charts",
-        "Secure sandboxed execution environment",
-      ],
-    },
-    {
-      id: "strata-design-system",
-      title: "Strata Accessible Design System & Token Studio",
-      type: "Technical Demonstration",
-      category: "Design & Digital",
-      description:
-        "A component ecosystem bridging design tokens to production React code with strict WCAG AA color contrasts and seamless theme synchronization.",
-      technologies: ["React", "Framer Motion", "Tailwind CSS", "Figma Tokens"],
-      metrics: [
-        { label: "WCAG Compliance", value: "Level AA" },
-        { label: "Component Count", value: "40+ Primitives" },
-        { label: "Theme Latency", value: "0ms Switch" },
-      ],
-      highlights: [
-        "Strict automated contrast verification on light and dark palettes",
-        "Polymorphic accessible interactive buttons and modals",
-        "Fluid responsive scaling for mobile, tablet, and desktop",
-      ],
-    },
-    {
-      id: "vortex-growth-engine",
-      title: "Vortex PPC & Lifecycle Growth Dashboard",
-      type: "Technical Demonstration",
-      category: "Digital & Branding",
-      description:
-        "A multi-channel campaign tracking framework unifying PPC spend attribution, technical SEO scorecards, and customer lifecycle onboarding conversion funnels.",
-      technologies: ["Next.js", "Analytics APIs", "Tailwind CSS", "Chart.js"],
-      metrics: [
-        { label: "Attribution", value: "Multi-Touch" },
-        { label: "SEO Audit Score", value: "98/100" },
-        { label: "Data Latency", value: "Sub-Second" },
-      ],
-      highlights: [
-        "Real-time PPC advertising ROAS visualizer",
-        "Automated technical SEO audit recommendations",
-        "Lifecycle email conversion funnel analytics",
-      ],
-    },
-  ],
-
   // About the Company: Client Approach & Work Culture
   about: {
     badge: "WHO WE ARE",
@@ -368,37 +286,6 @@ export const siteConfig = {
       },
     ],
   },
-
-  // Technical Insights / Perspectives
-  insights: [
-    {
-      id: "insight-1",
-      title: "Why Startups Should Choose Modular Monoliths Before Microservices",
-      category: "Software Development",
-      date: "Architecture Note",
-      readTime: "4 min read",
-      summary:
-        "How avoiding premature distributed complexity helps startups ship features 3x faster with lower infrastructure overhead.",
-    },
-    {
-      id: "insight-2",
-      title: "Practical AI: Integrating Applied Models into Existing Web Apps",
-      category: "AI & ML",
-      date: "Engineering Insight",
-      readTime: "5 min read",
-      summary:
-        "A pragmatic blueprint for integrating lightweight embeddings and automated task agents without ballooning cloud costs.",
-    },
-    {
-      id: "insight-3",
-      title: "Building Modern First Design Systems that Pass WCAG AA",
-      category: "Design & Digital",
-      date: "Design Note",
-      readTime: "3 min read",
-      summary:
-        "Managing semantic color tokens, elevation surfaces, and crimson accent contrasts for accessibility and elegance.",
-    },
-  ],
 
   // Contact & Project Inquiry
   contact: {

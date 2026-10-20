@@ -8,8 +8,6 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { IndustriesPage } from './pages/IndustriesPage';
-import { ProjectsPage } from './pages/ProjectsPage';
-import { InsightsPage } from './pages/InsightsPage';
 import { ContactPage } from './pages/ContactPage';
 
 function App() {
@@ -28,8 +26,6 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/industries" element={<IndustriesPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/insights" element={<InsightsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               {/* Fallback to Home */}
               <Route path="*" element={<Navigate to="/" replace />} />

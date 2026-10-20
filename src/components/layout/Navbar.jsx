@@ -432,30 +432,6 @@ export const Navbar = () => {
                   Industries
                 </Link>
 
-                {/* Projects */}
-                <Link
-                  to="/projects"
-                  className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    isActive('/projects')
-                      ? 'bg-crimson-50 dark:bg-crimson-950/40 text-crimson-600 dark:text-crimson-400 font-semibold'
-                      : 'text-slate-700 dark:text-muted-200 hover:bg-slate-100 dark:hover:bg-dark-850'
-                  }`}
-                >
-                  Projects
-                </Link>
-
-                {/* Insights */}
-                <Link
-                  to="/insights"
-                  className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    isActive('/insights')
-                      ? 'bg-crimson-50 dark:bg-crimson-950/40 text-crimson-600 dark:text-crimson-400 font-semibold'
-                      : 'text-slate-700 dark:text-muted-200 hover:bg-slate-100 dark:hover:bg-dark-850'
-                  }`}
-                >
-                  Insights
-                </Link>
-
                 {/* Contact Us */}
                 <Link
                   to="/contact"
