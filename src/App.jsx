@@ -15,12 +15,12 @@ function App() {
     <ThemeProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen bg-slate-50 dark:bg-dark-950 text-slate-900 dark:text-white flex flex-col relative selection:bg-crimson-600 selection:text-white transition-colors duration-200">
+        <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 dark:bg-dark-950 text-slate-900 dark:text-white flex flex-col relative selection:bg-crimson-600 selection:text-white transition-colors duration-200">
           {/* Global Header & Navigation */}
           <Navbar />
 
           {/* Multi-Page Routes */}
-          <main className="flex-1">
+          <main className="flex-1 w-full max-w-full overflow-x-hidden">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />

@@ -60,15 +60,15 @@ export const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Lock body scroll when mobile menu is active
+  // Lock body scroll when mobile menu is active without breaking overflow-x
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflowY = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflowY = 'auto';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflowY = 'auto';
     };
   }, [mobileMenuOpen]);
 

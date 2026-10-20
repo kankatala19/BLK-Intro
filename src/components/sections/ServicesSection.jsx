@@ -34,10 +34,10 @@ export const ServicesSection = () => {
       : siteConfig.serviceCategories.filter((c) => c.id === selectedCategory);
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
+    <section id="services" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 w-full">
         {/* Header */}
         <motion.div
           variants={staggerContainer(0.1, 0.1)}
@@ -188,7 +188,7 @@ export const ServicesSection = () => {
                 </p>
               </div>
 
-              <Button variant="secondary" size="md" onClick={() => navigate('/contact')} className="shrink-0">
+              <Button variant="secondary" size="md" onClick={() => navigate('/contact')} className="shrink-0 w-full sm:w-auto justify-center">
                 Request QA Audit
               </Button>
             </div>

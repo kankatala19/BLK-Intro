@@ -26,18 +26,18 @@ export const AboutSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
+    <section id="about" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
       <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <Container className="relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
           {/* Left Column: Client Approach & Culture Overview */}
           <motion.div
             variants={staggerContainer(0.1, 0.1)}
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="lg:col-span-5 space-y-6"
+            className="w-full lg:col-span-5 space-y-6"
           >
             <motion.div variants={fadeIn('down', 0.1)}>
               <Badge variant="crimson" showDot={true} className="py-1 px-3.5 text-xs font-mono">
@@ -82,7 +82,7 @@ export const AboutSection = () => {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5"
+            className="w-full lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5"
           >
             {siteConfig.about.pillars.map((pillar, idx) => {
               const IconComp = iconMap[pillar.icon] || ShieldCheck;

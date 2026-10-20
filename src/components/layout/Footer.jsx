@@ -8,8 +8,8 @@ export const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="border-t border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-dark-950 text-slate-800 dark:text-white relative z-10 pt-16 pb-12 transition-colors">
-      <Container>
+    <footer className="border-t border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-dark-950 text-slate-800 dark:text-white relative z-10 pt-16 pb-12 transition-colors overflow-hidden w-full">
+      <Container className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-200/80 dark:border-white/5">
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">

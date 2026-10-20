@@ -18,10 +18,10 @@ export const CapabilitiesSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="capabilities" className="py-20 md:py-28 bg-white dark:bg-dark-900/40 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
+    <section id="capabilities" className="py-20 md:py-28 bg-white dark:bg-dark-900/40 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
       <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 w-full">
         {/* Header */}
         <motion.div
           variants={staggerContainer(0.1, 0.1)}

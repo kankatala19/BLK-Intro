@@ -20,10 +20,10 @@ export const ApproachCultureSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="culture" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
+    <section id="culture" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
       <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 w-full">
         {/* Header */}
         <motion.div
           variants={staggerContainer(0.1, 0.1)}
@@ -91,8 +91,8 @@ export const ApproachCultureSection = () => {
         </div>
 
         {/* Work Culture Callout Banner */}
-        <div className="glass-panel rounded-2xl p-8 sm:p-10 border border-slate-200 dark:border-white/10 relative overflow-hidden bg-white/95 dark:bg-dark-900/90 shadow-md">
-          <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-crimson-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="glass-panel rounded-2xl p-6 sm:p-10 border border-slate-200 dark:border-white/10 relative overflow-hidden bg-white/95 dark:bg-dark-900/90 shadow-md w-full">
+          <div className="absolute -right-10 -bottom-10 w-48 sm:w-64 h-48 sm:h-64 bg-crimson-600/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-3">

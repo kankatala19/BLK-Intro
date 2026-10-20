@@ -10,11 +10,11 @@ export const ServicesPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="pt-28 pb-20">
+    <div className="pt-28 pb-20 w-full max-w-full overflow-x-hidden">
       {/* Page Header */}
-      <section className="py-16 md:py-24 bg-slate-50 dark:bg-dark-950 border-b border-slate-200/80 dark:border-white/5 relative">
+      <section className="py-16 md:py-24 bg-slate-50 dark:bg-dark-950 border-b border-slate-200/80 dark:border-white/5 relative w-full overflow-hidden">
         <div className="absolute inset-0 bg-tech-grid opacity-25 pointer-events-none" />
-        <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6">
+        <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6 w-full">
           <Badge variant="crimson" showDot={true} className="py-1 px-3.5 text-xs font-mono">
             ENGINEERING & DIGITAL SERVICES
           </Badge>
@@ -32,8 +32,8 @@ export const ServicesPage = () => {
       <ServicesSection />
 
       {/* Consultation Banner */}
-      <section className="py-16 bg-white dark:bg-dark-900/60 border-t border-slate-200/80 dark:border-white/5">
-        <Container>
+      <section className="py-16 bg-white dark:bg-dark-900/60 border-t border-slate-200/80 dark:border-white/5 w-full overflow-hidden">
+        <Container className="w-full">
           <div className="glass-panel p-8 sm:p-12 rounded-2xl border border-slate-200 dark:border-white/10 text-center max-w-3xl mx-auto space-y-6 shadow-md">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
               Have a Custom Technical Requirement?

@@ -6,11 +6,11 @@ import { Shield, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
 
 export const ContactPage = () => {
   return (
-    <div className="pt-28 pb-20">
+    <div className="pt-28 pb-20 w-full max-w-full overflow-x-hidden">
       {/* Page Header */}
-      <section className="py-16 md:py-24 bg-slate-50 dark:bg-dark-950 border-b border-slate-200/80 dark:border-white/5 relative">
+      <section className="py-16 md:py-24 bg-slate-50 dark:bg-dark-950 border-b border-slate-200/80 dark:border-white/5 relative w-full overflow-hidden">
         <div className="absolute inset-0 bg-tech-grid opacity-25 pointer-events-none" />
-        <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6">
+        <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6 w-full">
           <Badge variant="crimson" showDot={true} className="py-1 px-3.5 text-xs font-mono">
             GET IN TOUCH // HIRE US
           </Badge>
@@ -28,8 +28,8 @@ export const ContactPage = () => {
       <ContactSection />
 
       {/* Frequently Asked Partnership Questions */}
-      <section className="py-20 bg-white dark:bg-dark-900/60 border-t border-slate-200/80 dark:border-white/5">
-        <Container>
+      <section className="py-20 bg-white dark:bg-dark-900/60 border-t border-slate-200/80 dark:border-white/5 w-full overflow-hidden">
+        <Container className="w-full">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
             <Badge variant="outline" className="text-xs font-mono">
               WORKING WITH BLK

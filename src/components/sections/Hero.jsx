@@ -12,20 +12,20 @@ export const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-50 dark:bg-dark-950 transition-colors">
+    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-50 dark:bg-dark-950 transition-colors w-full">
       {/* Background ambient radial gradients & technical grids */}
       <div className="absolute inset-0 bg-tech-grid opacity-30 dark:opacity-25 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-crimson-600/10 dark:bg-crimson-700/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-slate-200/50 dark:bg-dark-850/50 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] h-[250px] sm:h-[350px] lg:h-[400px] bg-crimson-600/10 dark:bg-crimson-700/15 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 -left-10 w-48 sm:w-[300px] h-48 sm:h-[300px] bg-slate-200/50 dark:bg-dark-850/50 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none" />
 
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <Container className="relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center w-full">
           {/* Left Column: Introduction & Headlines */}
           <motion.div
             variants={staggerContainer(0.12, 0.1)}
             initial="hidden"
             animate="show"
-            className="lg:col-span-7 space-y-7 text-left"
+            className="w-full lg:col-span-7 space-y-7 text-left"
           >
             {/* Status / Eyebrow pill */}
             <motion.div variants={fadeIn('down', 0.1)} className="flex items-center gap-3">
@@ -56,14 +56,14 @@ export const Hero = () => {
             {/* Action Buttons */}
             <motion.div
               variants={fadeIn('up', 0.35)}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 w-full"
             >
               <Button
                 variant="primary"
                 size="lg"
                 icon={ArrowRight}
                 onClick={() => navigate('/contact')}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto justify-center"
               >
                 {siteConfig.hero.primaryCta}
               </Button>
@@ -73,7 +73,7 @@ export const Hero = () => {
                 icon={Layers}
                 iconPosition="left"
                 onClick={() => navigate('/services')}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto justify-center"
               >
                 {siteConfig.hero.secondaryCta}
               </Button>
@@ -83,7 +83,7 @@ export const Hero = () => {
                 icon={Briefcase}
                 iconPosition="left"
                 onClick={() => navigate('/contact')}
-                className="w-full sm:w-auto border border-slate-300 dark:border-white/10 hover:border-crimson-600/40"
+                className="w-full sm:w-auto justify-center border border-slate-300 dark:border-white/10 hover:border-crimson-600/40"
               >
                 {siteConfig.hero.hireCta}
               </Button>
@@ -92,18 +92,18 @@ export const Hero = () => {
             {/* Operational Highlights Bar */}
             <motion.div
               variants={fadeIn('up', 0.45)}
-              className="pt-6 border-t border-slate-200 dark:border-white/5 flex flex-wrap items-center gap-6 text-xs text-slate-600 dark:text-muted-400"
+              className="pt-6 border-t border-slate-200 dark:border-white/5 flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-600 dark:text-muted-400 w-full"
             >
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-crimson-600" />
+                <ShieldCheck className="w-4 h-4 text-crimson-600 shrink-0" />
                 <span className="font-medium">Agile Engineering</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-crimson-600" />
+                <Zap className="w-4 h-4 text-crimson-600 shrink-0" />
                 <span className="font-medium">Modern Tech Stack</span>
               </div>
               <div className="flex items-center gap-2">
-                <Server className="w-4 h-4 text-crimson-600" />
+                <Server className="w-4 h-4 text-crimson-600 shrink-0" />
                 <span className="font-medium">Startups to Enterprise Scale</span>
               </div>
             </motion.div>
@@ -114,13 +114,13 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative"
+            className="w-full lg:col-span-5 relative"
           >
             {/* Outer Glow Halo */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-crimson-500/20 to-transparent rounded-2xl blur-xl opacity-50" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-crimson-500/20 to-transparent rounded-2xl blur-xl opacity-50 pointer-events-none" />
 
             {/* Main Interactive Glass Console */}
-            <div className="relative glass-panel rounded-2xl border border-slate-200 dark:border-white/10 shadow-lg dark:shadow-card-dark overflow-hidden bg-white/95 dark:bg-dark-900/90 backdrop-blur-xl">
+            <div className="relative glass-panel rounded-2xl border border-slate-200 dark:border-white/10 shadow-lg dark:shadow-card-dark overflow-hidden bg-white/95 dark:bg-dark-900/90 backdrop-blur-xl w-full">
               {/* Terminal Window Header */}
               <div className="flex items-center justify-between px-4 py-3 bg-slate-100/90 dark:bg-dark-850/80 border-b border-slate-200/80 dark:border-white/5">
                 <div className="flex items-center gap-2">
@@ -138,9 +138,9 @@ export const Hero = () => {
               </div>
 
               {/* Console Body: Abstract Technology Topology */}
-              <div className="p-6 space-y-6">
+              <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
                 {/* Visual Topology Map */}
-                <div className="relative h-44 rounded-xl bg-slate-900 dark:bg-dark-950/70 border border-slate-800 dark:border-white/5 p-4 overflow-hidden flex flex-col justify-between text-white">
+                <div className="relative h-44 rounded-xl bg-slate-900 dark:bg-dark-950/70 border border-slate-800 dark:border-white/5 p-4 overflow-hidden flex flex-col justify-between text-white w-full">
                   <div className="absolute inset-0 bg-tech-dots opacity-40 pointer-events-none" />
 
                   {/* Circuit Nodes SVG */}
@@ -165,25 +165,25 @@ export const Hero = () => {
 
                   {/* Center Node Data Bubble */}
                   <div className="relative z-10 mx-auto bg-slate-800/90 dark:bg-dark-850/90 border border-crimson-500/50 px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-2">
-                    <Cpu className="w-3.5 h-3.5 text-crimson-400" />
+                    <Cpu className="w-3.5 h-3.5 text-crimson-400 shrink-0" />
                     <span className="text-xs font-mono text-white">BLK Agile Delivery</span>
                   </div>
 
                   {/* Bottom Telemetry Metrics */}
-                  <div className="relative z-10 flex justify-between items-center text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-800 dark:border-white/5">
+                  <div className="relative z-10 flex flex-wrap justify-between items-center gap-1 text-[9px] sm:text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-800 dark:border-white/5">
                     <span>SPRINTS: 2 WEEKS</span>
                     <span>QA: MULTI-LAYER</span>
-                    <span>PARTNERSHIP: LONG-TERM</span>
+                    <span>SCALE: ENTERPRISE</span>
                   </div>
                 </div>
 
                 {/* Secondary Telemetry Indicators */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="p-3 rounded-lg bg-slate-50 dark:bg-dark-850/60 border border-slate-200 dark:border-white/5 space-y-1">
                     <div className="text-[10px] font-mono text-slate-500 dark:text-muted-400 uppercase">Architecture</div>
                     <div className="text-sm font-bold text-slate-900 dark:text-white flex items-center justify-between">
                       <span>Bespoke & Scalable</span>
-                      <Activity className="w-3.5 h-3.5 text-crimson-600" />
+                      <Activity className="w-3.5 h-3.5 text-crimson-600 shrink-0" />
                     </div>
                   </div>
 
@@ -191,7 +191,7 @@ export const Hero = () => {
                     <div className="text-[10px] font-mono text-slate-500 dark:text-muted-400 uppercase">Code Standard</div>
                     <div className="text-sm font-bold text-slate-900 dark:text-white flex items-center justify-between">
                       <span>Full QA Rigor</span>
-                      <ShieldCheck className="w-3.5 h-3.5 text-crimson-600" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-crimson-600 shrink-0" />
                     </div>
                   </div>
                 </div>
@@ -199,7 +199,7 @@ export const Hero = () => {
                 {/* Terminal Snippet */}
                 <div className="rounded-lg bg-slate-900 dark:bg-dark-950/80 p-3 font-mono text-[11px] text-slate-400 dark:text-muted-400 border border-slate-800 dark:border-white/5 space-y-1">
                   <div className="text-slate-500">// BLK Software Solutions runtime initialized</div>
-                  <div className="text-white flex items-center gap-1.5">
+                  <div className="text-white flex items-center gap-1.5 flex-wrap">
                     <span className="text-crimson-500">&gt;</span>
                     <span>blk --build --quality-first --deliver</span>
                   </div>

@@ -50,11 +50,11 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-crimson-600/10 dark:bg-crimson-800/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="contact" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[650px] h-[250px] sm:h-[350px] bg-crimson-600/10 dark:bg-crimson-800/10 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none" />
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 w-full">
         {/* Header */}
         <motion.div
           variants={staggerContainer(0.1, 0.1)}
@@ -85,14 +85,14 @@ export const ContactSection = () => {
         </motion.div>
 
         {/* Contact Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start w-full">
           {/* Left Column: Direct Inquiries */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 space-y-6"
+            className="w-full lg:col-span-5 space-y-6"
           >
             <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-white/10 space-y-6 shadow-sm">
               <div className="flex items-center gap-2">
@@ -172,7 +172,7 @@ export const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7"
+            className="w-full lg:col-span-7"
           >
             <div className="glass-panel rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200/80 dark:border-white/10 shadow-lg relative overflow-hidden bg-white/95 dark:bg-dark-900/90">
               <AnimatePresence mode="wait">
