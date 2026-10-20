@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   GitBranch,
@@ -16,13 +17,10 @@ import { siteConfig } from '../../data/siteConfig';
 import { fadeIn, staggerContainer, viewportOnce } from '../../utils/motion';
 
 export const ApproachCultureSection = () => {
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const navigate = useNavigate();
 
   return (
-    <section id="culture" className="py-24 md:py-32 bg-dark-950 border-t border-white/5 relative">
+    <section id="culture" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
       <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
       <Container className="relative z-10">
@@ -42,14 +40,14 @@ export const ApproachCultureSection = () => {
 
           <motion.h2
             variants={fadeIn('up', 0.2)}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
           >
             Engineering Discipline & <span className="text-gradient-crimson">Work Culture</span>
           </motion.h2>
 
           <motion.p
             variants={fadeIn('up', 0.3)}
-            className="text-sm sm:text-base text-muted-400 font-normal leading-relaxed"
+            className="text-sm sm:text-base text-slate-600 dark:text-muted-400 font-normal leading-relaxed"
           >
             {siteConfig.approachAndCulture.subtitle}
           </motion.p>
@@ -64,28 +62,28 @@ export const ApproachCultureSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="glass-panel glass-panel-hover rounded-2xl p-6 border border-white/10 relative overflow-hidden flex flex-col justify-between"
+              className="glass-panel glass-panel-hover rounded-2xl p-6 border border-slate-200/80 dark:border-white/10 relative overflow-hidden flex flex-col justify-between shadow-sm"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-mono font-extrabold text-crimson-500">
+                  <span className="text-2xl font-mono font-extrabold text-crimson-600">
                     {step.number}
                   </span>
                   <span className="w-2 h-2 rounded-full bg-crimson-600/60" />
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-base font-bold text-white tracking-tight">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-muted-400 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-muted-400 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/5 flex items-center gap-1.5 text-[10px] font-mono text-muted-500">
-                <CheckCircle2 className="w-3 h-3 text-crimson-500" />
+              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-white/5 flex items-center gap-1.5 text-[10px] font-mono text-slate-500 dark:text-muted-500">
+                <CheckCircle2 className="w-3.5 h-3.5 text-crimson-600" />
                 <span>Verified Milestone Gate</span>
               </div>
             </motion.div>
@@ -93,18 +91,18 @@ export const ApproachCultureSection = () => {
         </div>
 
         {/* Work Culture Callout Banner */}
-        <div className="glass-panel rounded-2xl p-8 sm:p-10 border border-white/10 relative overflow-hidden bg-dark-900/90">
-          <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-crimson-700/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="glass-panel rounded-2xl p-8 sm:p-10 border border-slate-200 dark:border-white/10 relative overflow-hidden bg-white/95 dark:bg-dark-900/90 shadow-md">
+          <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-crimson-600/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-3">
               <Badge variant="outline" className="text-xs font-mono">
                 CULTURE & COLLABORATION
               </Badge>
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                 How We Collaborate With Your Team
               </h3>
-              <p className="text-sm text-muted-300 leading-relaxed max-w-2xl">
+              <p className="text-sm text-slate-600 dark:text-muted-300 leading-relaxed max-w-2xl">
                 We operate as an extension of your product organization. You get direct access to our
                 senior engineers, transparent code repositories, automated staging previews, and
                 weekly video syncs. No convoluted middle layers.
@@ -116,7 +114,7 @@ export const ApproachCultureSection = () => {
                 variant="primary"
                 size="md"
                 icon={ArrowRight}
-                onClick={scrollToContact}
+                onClick={() => navigate('/contact')}
                 className="w-full sm:w-auto lg:w-full justify-center"
               >
                 Hire Our Team
@@ -124,7 +122,7 @@ export const ApproachCultureSection = () => {
               <Button
                 variant="secondary"
                 size="md"
-                onClick={scrollToContact}
+                onClick={() => navigate('/contact')}
                 className="w-full sm:w-auto lg:w-full justify-center text-xs"
               >
                 Schedule Introduction
@@ -136,4 +134,3 @@ export const ApproachCultureSection = () => {
     </section>
   );
 };
-

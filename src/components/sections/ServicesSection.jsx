@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Code2,
@@ -9,7 +10,6 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
-  Terminal,
 } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Badge } from '../ui/Badge';
@@ -26,11 +26,7 @@ const iconMap = {
 
 export const ServicesSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const navigate = useNavigate();
 
   const categoriesToDisplay =
     selectedCategory === 'all'
@@ -38,7 +34,7 @@ export const ServicesSection = () => {
       : siteConfig.serviceCategories.filter((c) => c.id === selectedCategory);
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-dark-950 border-t border-white/5 relative">
+    <section id="services" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
 
       <Container className="relative z-10">
@@ -58,14 +54,14 @@ export const ServicesSection = () => {
 
           <motion.h2
             variants={fadeIn('up', 0.2)}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
           >
             Specialized Services Built for <span className="text-gradient-crimson">Impact</span>
           </motion.h2>
 
           <motion.p
             variants={fadeIn('up', 0.3)}
-            className="text-sm sm:text-base text-muted-400 font-normal leading-relaxed"
+            className="text-sm sm:text-base text-slate-600 dark:text-muted-400 font-normal leading-relaxed"
           >
             From custom CRM/ERP pipelines and bespoke software to conversion-focused digital marketing
             and rigorous quality assurance suites.
@@ -78,8 +74,8 @@ export const ServicesSection = () => {
             onClick={() => setSelectedCategory('all')}
             className={`px-4 py-2 rounded-full text-xs font-mono transition-all ${
               selectedCategory === 'all'
-                ? 'bg-crimson-600 text-white shadow-glow-red-sm font-semibold'
-                : 'bg-dark-850 text-muted-400 hover:text-white border border-dark-750'
+                ? 'bg-crimson-600 text-white shadow-sm font-semibold'
+                : 'bg-white dark:bg-dark-850 text-slate-600 dark:text-muted-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-dark-750'
             }`}
           >
             All Disciplines
@@ -90,8 +86,8 @@ export const ServicesSection = () => {
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-4 py-2 rounded-full text-xs font-mono transition-all ${
                 selectedCategory === cat.id
-                  ? 'bg-crimson-600 text-white shadow-glow-red-sm font-semibold'
-                  : 'bg-dark-850 text-muted-400 hover:text-white border border-dark-750'
+                  ? 'bg-crimson-600 text-white shadow-sm font-semibold'
+                  : 'bg-white dark:bg-dark-850 text-slate-600 dark:text-muted-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-dark-750'
               }`}
             >
               {cat.title}
@@ -115,16 +111,16 @@ export const ServicesSection = () => {
                   className="space-y-6"
                 >
                   {/* Category Header Bar */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-white/10">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-crimson-950/40 border border-crimson-900/60 flex items-center justify-center text-crimson-400">
+                      <div className="w-10 h-10 rounded-xl bg-crimson-50 dark:bg-crimson-950/40 border border-crimson-200 dark:border-crimson-900/60 flex items-center justify-center text-crimson-600 shadow-sm">
                         <IconComp className="w-5 h-5" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white tracking-tight">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
                           {cat.title}
                         </h3>
-                        <p className="text-xs text-muted-400">{cat.shortDescription}</p>
+                        <p className="text-xs text-slate-500 dark:text-muted-400">{cat.shortDescription}</p>
                       </div>
                     </div>
                     <Badge variant="outline" className="w-fit text-[11px] font-mono">
@@ -137,27 +133,27 @@ export const ServicesSection = () => {
                     {cat.services.map((sub) => (
                       <div
                         key={sub.name}
-                        className="glass-panel glass-panel-hover rounded-xl p-5 border border-white/5 flex flex-col justify-between group"
+                        className="glass-panel glass-panel-hover rounded-xl p-5 border border-slate-200/80 dark:border-white/5 flex flex-col justify-between group"
                       >
                         <div className="space-y-2.5">
                           <div className="flex items-start justify-between">
-                            <h4 className="text-sm font-bold text-white group-hover:text-crimson-400 transition-colors">
+                            <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-crimson-600 transition-colors">
                               {sub.name}
                             </h4>
                             <span className="w-1.5 h-1.5 rounded-full bg-crimson-600 shrink-0 mt-1.5 opacity-60 group-hover:opacity-100" />
                           </div>
-                          <p className="text-xs text-muted-400 leading-relaxed">
+                          <p className="text-xs text-slate-600 dark:text-muted-400 leading-relaxed">
                             {sub.description}
                           </p>
                         </div>
 
-                        <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs">
-                          <span className="text-[10px] font-mono text-muted-500 uppercase">
+                        <div className="pt-4 mt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs">
+                          <span className="text-[10px] font-mono text-slate-400 dark:text-muted-500 uppercase">
                             Available Now
                           </span>
                           <button
-                            onClick={scrollToContact}
-                            className="text-xs text-crimson-400 hover:text-crimson-300 flex items-center gap-1 font-mono transition-colors"
+                            onClick={() => navigate('/contact')}
+                            className="text-xs text-crimson-600 hover:text-crimson-700 font-mono flex items-center gap-1 transition-colors font-semibold"
                           >
                             <span>Inquire</span>
                             <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -172,27 +168,27 @@ export const ServicesSection = () => {
           </AnimatePresence>
 
           {/* Dedicated Quality Assurance Breakdown Box */}
-          <div className="glass-panel rounded-2xl p-7 sm:p-9 border border-white/10 relative overflow-hidden bg-dark-900/80">
+          <div className="glass-panel rounded-2xl p-7 sm:p-9 border border-slate-200 dark:border-white/10 relative overflow-hidden bg-white/95 dark:bg-dark-900/80 shadow-md">
             <div className="absolute top-0 left-0 w-2 h-full bg-crimson-600" />
 
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/5">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-white/5">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-crimson-500" />
-                  <span className="text-xs font-mono text-crimson-400 uppercase tracking-widest">
+                  <ShieldCheck className="w-5 h-5 text-crimson-600" />
+                  <span className="text-xs font-mono text-crimson-600 uppercase tracking-widest font-semibold">
                     Core Engineering Standard
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                   Comprehensive Quality Assurance (QA) Framework
                 </h3>
-                <p className="text-xs sm:text-sm text-muted-400 max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-muted-400 max-w-2xl leading-relaxed">
                   Every product engineered by BLK Software Solutions undergoes strict multi-layer testing
                   protocols before deployment to ensure resilience and zero regressions.
                 </p>
               </div>
 
-              <Button variant="secondary" size="md" onClick={scrollToContact} className="shrink-0">
+              <Button variant="secondary" size="md" onClick={() => navigate('/contact')} className="shrink-0">
                 Request QA Audit
               </Button>
             </div>
@@ -202,13 +198,13 @@ export const ServicesSection = () => {
               {siteConfig.qaSpecialties.map((qa) => (
                 <div
                   key={qa.title}
-                  className="p-4 rounded-xl bg-dark-850/60 border border-white/5 space-y-2"
+                  className="p-4 rounded-xl bg-slate-50 dark:bg-dark-850/60 border border-slate-200/80 dark:border-white/5 space-y-2"
                 >
-                  <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-crimson-500 shrink-0" />
+                  <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-crimson-600 shrink-0" />
                     <span>{qa.title}</span>
                   </div>
-                  <p className="text-xs text-muted-400 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-muted-400 leading-relaxed">
                     {qa.detail}
                   </p>
                 </div>

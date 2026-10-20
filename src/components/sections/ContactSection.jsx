@@ -50,8 +50,8 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-dark-950 border-t border-white/5 relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-crimson-800/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="contact" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-crimson-600/10 dark:bg-crimson-800/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
 
       <Container className="relative z-10">
@@ -71,14 +71,14 @@ export const ContactSection = () => {
 
           <motion.h2
             variants={fadeIn('up', 0.2)}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
           >
             {siteConfig.contact.title}
           </motion.h2>
 
           <motion.p
             variants={fadeIn('up', 0.3)}
-            className="text-base text-muted-400 font-normal leading-relaxed"
+            className="text-base text-slate-600 dark:text-muted-400 font-normal leading-relaxed"
           >
             {siteConfig.contact.description}
           </motion.p>
@@ -94,24 +94,24 @@ export const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 space-y-6"
           >
-            <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
+            <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-white/10 space-y-6 shadow-sm">
               <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-crimson-500" />
-                <h3 className="text-xl font-bold text-white tracking-tight">
+                <Briefcase className="w-5 h-5 text-crimson-600" />
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
                   Direct Inquiries & Hire Us
                 </h3>
               </div>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-dark-850 border border-dark-750 flex items-center justify-center text-crimson-500 shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shrink-0 shadow-sm">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-muted-400 uppercase">Contact Email</div>
+                    <div className="text-xs font-mono text-slate-500 dark:text-muted-400 uppercase">Contact Email</div>
                     <a
                       href={`mailto:${siteConfig.contact.email}`}
-                      className="text-sm font-semibold text-white hover:text-crimson-400 transition-colors"
+                      className="text-sm font-semibold text-slate-900 dark:text-white hover:text-crimson-600 transition-colors"
                     >
                       {siteConfig.contact.email}
                     </a>
@@ -119,24 +119,24 @@ export const ContactSection = () => {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-dark-850 border border-dark-750 flex items-center justify-center text-crimson-500 shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shrink-0 shadow-sm">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-muted-400 uppercase">Response SLA</div>
-                    <div className="text-sm font-semibold text-white">
+                    <div className="text-xs font-mono text-slate-500 dark:text-muted-400 uppercase">Response SLA</div>
+                    <div className="text-sm font-semibold text-slate-900 dark:text-white">
                       {siteConfig.contact.responseSla}
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-dark-850 border border-dark-750 flex items-center justify-center text-crimson-500 shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shrink-0 shadow-sm">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-muted-400 uppercase">Status</div>
-                    <div className="text-sm font-semibold text-white">
+                    <div className="text-xs font-mono text-slate-500 dark:text-muted-400 uppercase">Status</div>
+                    <div className="text-sm font-semibold text-slate-900 dark:text-white">
                       {siteConfig.contact.availability}
                     </div>
                   </div>
@@ -144,12 +144,12 @@ export const ContactSection = () => {
               </div>
 
               {/* Confidentiality Box */}
-              <div className="pt-4 border-t border-white/5 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-semibold text-white">
-                  <Shield className="w-4 h-4 text-crimson-500" />
+              <div className="pt-4 border-t border-slate-200/80 dark:border-white/5 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-white">
+                  <Shield className="w-4 h-4 text-crimson-600" />
                   <span>Confidentiality & Mutual NDA</span>
                 </div>
-                <p className="text-xs text-muted-400 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-muted-400 leading-relaxed">
                   We respect intellectual property and business privacy. Every discussion is handled
                   with complete confidentiality.
                 </p>
@@ -157,9 +157,9 @@ export const ContactSection = () => {
             </div>
 
             {/* Availability Pill */}
-            <div className="glass-panel p-4 rounded-xl border border-white/5 flex items-center justify-between text-xs font-mono">
-              <span className="text-muted-400">BLK Solutions Availability:</span>
-              <span className="text-emerald-400 flex items-center gap-1.5">
+            <div className="glass-panel p-4 rounded-xl border border-slate-200/80 dark:border-white/5 flex items-center justify-between text-xs font-mono shadow-sm">
+              <span className="text-slate-600 dark:text-muted-400">BLK Solutions Availability:</span>
+              <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 font-semibold">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 Active & Accepting
               </span>
@@ -174,7 +174,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className="glass-panel rounded-2xl p-6 sm:p-8 md:p-10 border border-white/10 shadow-2xl relative overflow-hidden bg-dark-900/90">
+            <div className="glass-panel rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200/80 dark:border-white/10 shadow-lg relative overflow-hidden bg-white/95 dark:bg-dark-900/90">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div
@@ -184,22 +184,22 @@ export const ContactSection = () => {
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="py-12 text-center space-y-5"
                   >
-                    <div className="w-16 h-16 rounded-full bg-crimson-950/60 border border-crimson-600/50 flex items-center justify-center text-crimson-400 mx-auto shadow-glow-red">
+                    <div className="w-16 h-16 rounded-full bg-crimson-50 dark:bg-crimson-950/60 border border-crimson-500/50 flex items-center justify-center text-crimson-600 mx-auto shadow-sm">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-white tracking-tight">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                         Project Request Received
                       </h3>
-                      <p className="text-sm text-muted-400 max-w-md mx-auto">
-                        Thank you, <span className="text-white font-medium">{formData.name}</span>.
+                      <p className="text-sm text-slate-600 dark:text-muted-400 max-w-md mx-auto">
+                        Thank you, <span className="text-slate-900 dark:text-white font-semibold">{formData.name}</span>.
                         The team at BLK Software Solutions will review your requirements and get back
                         to you within 24 business hours.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-dark-950 border border-white/5 max-w-sm mx-auto text-xs font-mono text-muted-400 text-left space-y-1">
+                    <div className="p-4 rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/5 max-w-sm mx-auto text-xs font-mono text-slate-600 dark:text-muted-400 text-left space-y-1">
                       <div>// Reference: BLK-REQ-{Math.floor(10000 + Math.random() * 90000)}</div>
                       <div>// Discipline: {formData.serviceOption}</div>
                       <div>// Contact: {formData.email}</div>
@@ -222,7 +222,7 @@ export const ContactSection = () => {
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label className="text-xs font-mono text-muted-300 uppercase">
+                        <label className="text-xs font-mono text-slate-700 dark:text-muted-300 uppercase font-semibold">
                           Full Name *
                         </label>
                         <input
@@ -231,12 +231,12 @@ export const ContactSection = () => {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="Your Name"
-                          className="w-full px-4 py-2.5 rounded-lg bg-dark-950 border border-dark-750 text-white placeholder-muted-500 focus:outline-none focus:border-crimson-500 transition-colors text-sm"
+                          className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-dark-950 border border-slate-300 dark:border-dark-750 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-muted-500 focus:outline-none focus:border-crimson-600 transition-colors text-sm"
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-mono text-muted-300 uppercase">
+                        <label className="text-xs font-mono text-slate-700 dark:text-muted-300 uppercase font-semibold">
                           Work Email *
                         </label>
                         <input
@@ -245,23 +245,23 @@ export const ContactSection = () => {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="name@company.com"
-                          className="w-full px-4 py-2.5 rounded-lg bg-dark-950 border border-dark-750 text-white placeholder-muted-500 focus:outline-none focus:border-crimson-500 transition-colors text-sm"
+                          className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-dark-950 border border-slate-300 dark:border-dark-750 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-muted-500 focus:outline-none focus:border-crimson-600 transition-colors text-sm"
                         />
                       </div>
                     </div>
 
                     {/* Service Selection */}
                     <div className="space-y-2">
-                      <label className="text-xs font-mono text-muted-300 uppercase">
+                      <label className="text-xs font-mono text-slate-700 dark:text-muted-300 uppercase font-semibold">
                         Primary Service Needed
                       </label>
                       <select
                         value={formData.serviceOption}
                         onChange={(e) => setFormData({ ...formData, serviceOption: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg bg-dark-950 border border-dark-750 text-white focus:outline-none focus:border-crimson-500 transition-colors text-sm"
+                        className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-dark-950 border border-slate-300 dark:border-dark-750 text-slate-900 dark:text-white focus:outline-none focus:border-crimson-600 transition-colors text-sm"
                       >
                         {siteConfig.contact.serviceOptions.map((opt) => (
-                          <option key={opt} value={opt} className="bg-dark-900 text-white">
+                          <option key={opt} value={opt} className="bg-white dark:bg-dark-900 text-slate-900 dark:text-white">
                             {opt}
                           </option>
                         ))}
@@ -270,7 +270,7 @@ export const ContactSection = () => {
 
                     {/* Target Timeline */}
                     <div className="space-y-2">
-                      <label className="text-xs font-mono text-muted-300 uppercase">
+                      <label className="text-xs font-mono text-slate-700 dark:text-muted-300 uppercase font-semibold">
                         Target Timeline
                       </label>
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -281,8 +281,8 @@ export const ContactSection = () => {
                             onClick={() => setFormData({ ...formData, timeline: time })}
                             className={`px-3 py-2 rounded-lg text-xs font-medium border text-center transition-all ${
                               formData.timeline === time
-                                ? 'bg-crimson-950/60 border-crimson-600 text-white shadow-glow-red-sm'
-                                : 'bg-dark-950 border-dark-750 text-muted-400 hover:text-white'
+                                ? 'bg-crimson-50 dark:bg-crimson-950/60 border-crimson-600 text-crimson-700 dark:text-white shadow-sm font-semibold'
+                                : 'bg-slate-50 dark:bg-dark-950 border-slate-200 dark:border-dark-750 text-slate-600 dark:text-muted-400 hover:text-slate-900'
                             }`}
                           >
                             {time}
@@ -293,7 +293,7 @@ export const ContactSection = () => {
 
                     {/* Message */}
                     <div className="space-y-2">
-                      <label className="text-xs font-mono text-muted-300 uppercase">
+                      <label className="text-xs font-mono text-slate-700 dark:text-muted-300 uppercase font-semibold">
                         Project Scope & Goals
                       </label>
                       <textarea
@@ -301,7 +301,7 @@ export const ContactSection = () => {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Tell us about the product you want to build, the technical challenges, or the team support required..."
-                        className="w-full px-4 py-2.5 rounded-lg bg-dark-950 border border-dark-750 text-white placeholder-muted-500 focus:outline-none focus:border-crimson-500 transition-colors text-sm resize-none"
+                        className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-dark-950 border border-slate-300 dark:border-dark-750 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-muted-500 focus:outline-none focus:border-crimson-600 transition-colors text-sm resize-none"
                       />
                     </div>
 

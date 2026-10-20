@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Users,
@@ -22,13 +23,10 @@ const iconMap = {
 };
 
 export const AboutSection = () => {
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const navigate = useNavigate();
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-dark-950 border-t border-white/5 relative">
+    <section id="about" className="py-24 md:py-32 bg-slate-50 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors">
       <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
       <Container className="relative z-10">
@@ -49,12 +47,12 @@ export const AboutSection = () => {
 
             <motion.h2
               variants={fadeIn('up', 0.2)}
-              className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight"
+              className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight"
             >
               {siteConfig.about.title}
             </motion.h2>
 
-            <motion.div variants={fadeIn('up', 0.3)} className="space-y-4 text-sm text-muted-300 leading-relaxed">
+            <motion.div variants={fadeIn('up', 0.3)} className="space-y-4 text-sm text-slate-600 dark:text-muted-300 leading-relaxed">
               <p>{siteConfig.about.clientApproach}</p>
               <p>{siteConfig.about.workCulture}</p>
             </motion.div>
@@ -64,16 +62,16 @@ export const AboutSection = () => {
                 variant="primary"
                 size="md"
                 icon={ArrowRight}
-                onClick={() => scrollTo('contact')}
+                onClick={() => navigate('/contact')}
               >
                 Start a Conversation
               </Button>
               <Button
                 variant="secondary"
                 size="md"
-                onClick={() => scrollTo('culture')}
+                onClick={() => navigate('/about')}
               >
-                Our Work Culture
+                Learn More About Us
               </Button>
             </motion.div>
           </motion.div>
@@ -93,17 +91,17 @@ export const AboutSection = () => {
                 <motion.div
                   key={pillar.title}
                   variants={fadeIn('up', idx * 0.08)}
-                  className="glass-panel p-6 rounded-2xl border border-white/10 hover:border-crimson-600/40 transition-colors space-y-4"
+                  className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 hover:border-crimson-600/40 transition-colors space-y-4 shadow-sm"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-dark-850 border border-dark-750 flex items-center justify-center text-crimson-500 shadow-inner">
+                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shadow-sm">
                     <IconComp className="w-5 h-5" />
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-base font-bold text-white tracking-tight">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-muted-400 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-muted-400 leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>

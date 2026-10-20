@@ -9,10 +9,14 @@ export const Badge = ({
   ...props
 }) => {
   const variants = {
-    default: 'bg-dark-800/90 text-muted-300 border-white/10 hover:border-white/20',
-    crimson: 'bg-crimson-950/40 text-crimson-300 border-crimson-900/60 shadow-glow-red-sm',
-    outline: 'bg-transparent text-muted-400 border-white/15',
-    subtle: 'bg-dark-850/80 text-muted-400 border-transparent',
+    default:
+      'bg-slate-100 dark:bg-dark-800/90 text-slate-700 dark:text-muted-300 border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20',
+    crimson:
+      'bg-crimson-50 dark:bg-crimson-950/40 text-crimson-700 dark:text-crimson-300 border-crimson-200 dark:border-crimson-900/60 shadow-sm dark:shadow-glow-red-sm',
+    outline:
+      'bg-transparent text-slate-600 dark:text-muted-400 border-slate-300 dark:border-white/15',
+    subtle:
+      'bg-slate-100/80 dark:bg-dark-850/80 text-slate-600 dark:text-muted-400 border-transparent',
   };
 
   return (
@@ -34,4 +38,3 @@ export const Badge = ({
     </span>
   );
 };
-

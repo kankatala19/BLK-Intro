@@ -21,13 +21,13 @@ export const Button = React.forwardRef(
 
     const variants = {
       primary:
-        'bg-crimson-gradient text-white border border-crimson-500/40 shadow-glow-red-sm hover:shadow-glow-red hover:brightness-110 active:scale-[0.98]',
+        'bg-crimson-600 hover:bg-crimson-700 text-white border border-crimson-500 shadow-sm hover:shadow-glow-red-sm active:scale-[0.98]',
       secondary:
-        'bg-dark-800 text-white border border-dark-700/80 hover:bg-dark-750 hover:border-crimson-600/40 active:scale-[0.98]',
+        'bg-white dark:bg-dark-800 text-slate-800 dark:text-white border border-slate-200 dark:border-dark-700/80 hover:bg-slate-50 dark:hover:bg-dark-750 hover:border-crimson-600/40 shadow-sm active:scale-[0.98]',
       outline:
-        'bg-transparent text-white border border-white/20 hover:border-white/40 hover:bg-white/5 active:scale-[0.98]',
+        'bg-transparent text-slate-800 dark:text-white border border-slate-300 dark:border-white/20 hover:border-crimson-500 hover:bg-crimson-50/50 dark:hover:bg-white/5 active:scale-[0.98]',
       ghost:
-        'bg-transparent text-muted-300 hover:text-white hover:bg-white/5 active:scale-[0.98]',
+        'bg-transparent text-slate-600 dark:text-muted-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 active:scale-[0.98]',
     };
 
     const sizes = {
@@ -53,4 +53,3 @@ export const Button = React.forwardRef(
 );
 
 Button.displayName = 'Button';
-

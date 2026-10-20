@@ -6,18 +6,19 @@ export const siteConfig = {
     "BLK Software Solutions is an ambitious, modern technology studio crafting bespoke software solutions, intelligent AI workflows, design systems, and digital growth engines for startups and expanding organizations.",
   status: "Available for New Projects",
 
-  // Primary Navigation
+  // Primary Multi-Page Navigation
   navLinks: [
-    { label: "Home", href: "#home" },
-    { label: "About Us", href: "#about" },
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about" },
     {
       label: "Services",
-      href: "#services",
+      path: "/services",
       hasDropdown: true,
     },
-    { label: "Industries", href: "#industries" },
-    { label: "Insights", href: "#insights" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Industries", path: "/industries" },
+    { label: "Projects", path: "/projects" },
+    { label: "Insights", path: "/insights" },
+    { label: "Contact Us", path: "/contact" },
   ],
 
   // 4 Core Capabilities & Services Categories
@@ -33,32 +34,32 @@ export const siteConfig = {
         {
           name: "Bespoke Software Solutions",
           description: "Custom-tailored software engineered from first principles for unique operational workflows.",
-          href: "#services",
+          path: "/services#software-development",
         },
         {
           name: "CRM and ERP Systems",
           description: "Integrated resource planning, customer data pipelines, and internal business automation.",
-          href: "#services",
+          path: "/services#software-development",
         },
         {
           name: "Enterprise Web Applications",
           description: "Reactive frontends and resilient backends built with React, Next.js, and TypeScript.",
-          href: "#services",
+          path: "/services#software-development",
         },
         {
           name: "Cloud Architecture & DevOps",
           description: "Containerized deployments, automated CI/CD pipelines, and multi-region infrastructure.",
-          href: "#services",
+          path: "/services#software-development",
         },
         {
           name: "Quality Assurance (QA)",
           description: "Comprehensive Manual, Automated, Security, and Performance testing suites.",
-          href: "#services",
+          path: "/services#qa-framework",
         },
         {
           name: "High-Throughput APIs & Microservices",
           description: "Low-latency REST and GraphQL endpoints designed for high concurrency.",
-          href: "#services",
+          path: "/services#software-development",
         },
       ],
     },
@@ -73,22 +74,22 @@ export const siteConfig = {
         {
           name: "UI/UX Design",
           description: "Intuitive user journeys, design prototypes, wireframing, and user research.",
-          href: "#services",
+          path: "/services#design-digital",
         },
         {
           name: "Design Systems & Token Architecture",
           description: "Reusable, WCAG AA compliant design tokens connecting Figma directly to code.",
-          href: "#services",
+          path: "/services#design-digital",
         },
         {
           name: "Cross-Platform Mobile Design",
           description: "Consistent mobile interfaces crafted for both iOS and Android ecosystems.",
-          href: "#services",
+          path: "/services#design-digital",
         },
         {
           name: "Interactive Digital Experiences",
           description: "High-fidelity micro-interactions, smooth motion layouts, and web animations.",
-          href: "#services",
+          path: "/services#design-digital",
         },
       ],
     },
@@ -103,22 +104,22 @@ export const siteConfig = {
         {
           name: "Machine Learning Model Integration",
           description: "Deploying and tuning predictive models into existing production web applications.",
-          href: "#services",
+          path: "/services#ai-ml",
         },
         {
           name: "Intelligent Workflow Automation",
           description: "Custom AI agents and automation bots that eliminate repetitive manual workflows.",
-          href: "#services",
+          path: "/services#ai-ml",
         },
         {
           name: "Data Pipelines & Predictive Analytics",
           description: "Real-time streaming and structured data ingestion for actionable operational insights.",
-          href: "#services",
+          path: "/services#ai-ml",
         },
         {
           name: "Natural Language Processing (NLP)",
           description: "Semantic search, vector databases, and contextual retrieval systems.",
-          href: "#services",
+          path: "/services#ai-ml",
         },
       ],
     },
@@ -133,22 +134,22 @@ export const siteConfig = {
         {
           name: "Search Engine Optimization (SEO)",
           description: "Technical SEO audits, site speed optimization, schema markup, and content indexing.",
-          href: "#services",
+          path: "/services#digital-branding",
         },
         {
           name: "PPC Advertising",
           description: "Data-driven pay-per-click search and social acquisition campaigns with clear ROAS tracking.",
-          href: "#services",
+          path: "/services#digital-branding",
         },
         {
           name: "Lifecycle Marketing Campaigns",
           description: "Automated onboarding sequences, re-engagement funnels, and retention email flows.",
-          href: "#services",
+          path: "/services#digital-branding",
         },
         {
           name: "Brand Identity & Digital Assets",
           description: "Modern visual guidelines, typography, iconography, and digital collateral.",
-          href: "#services",
+          path: "/services#digital-branding",
         },
       ],
     },
@@ -190,7 +191,7 @@ export const siteConfig = {
       highlights: [
         "Modular pipeline for custom lead and contract workflows",
         "Automated reconciliation with internal financial ledgers",
-        "Responsive cross-platform interface with dark UI styling",
+        "Responsive cross-platform interface with refined styling",
       ],
     },
     {
@@ -218,7 +219,7 @@ export const siteConfig = {
       type: "Technical Demonstration",
       category: "Design & Digital",
       description:
-        "A component ecosystem bridging design tokens to production React code with strict WCAG AA color contrasts and seamless dark mode synchronization.",
+        "A component ecosystem bridging design tokens to production React code with strict WCAG AA color contrasts and seamless theme synchronization.",
       technologies: ["React", "Framer Motion", "Tailwind CSS", "Figma Tokens"],
       metrics: [
         { label: "WCAG Compliance", value: "Level AA" },
@@ -226,7 +227,7 @@ export const siteConfig = {
         { label: "Theme Latency", value: "0ms Switch" },
       ],
       highlights: [
-        "Strict automated contrast verification on dark palettes",
+        "Strict automated contrast verification on light and dark palettes",
         "Polymorphic accessible interactive buttons and modals",
         "Fluid responsive scaling for mobile, tablet, and desktop",
       ],
@@ -390,7 +391,7 @@ export const siteConfig = {
     },
     {
       id: "insight-3",
-      title: "Building Dark-Mode First Design Systems that Pass WCAG AA",
+      title: "Building Modern First Design Systems that Pass WCAG AA",
       category: "Design & Digital",
       date: "Design Note",
       readTime: "3 min read",
@@ -406,7 +407,7 @@ export const siteConfig = {
     description:
       "Whether you are planning a new software project, exploring AI integration, upgrading a design system, or looking for an agile development partner, we are ready to listen.",
     email: "contact@blksoftware.com",
-    availability: "Monday to Friday, 9:00 AM - 6:00 PM",
+    availability: "Accepting inquiries for Q3/Q4",
     responseSla: "Within 24 business hours",
     serviceOptions: [
       "Bespoke Software Development",
