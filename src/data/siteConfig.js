@@ -374,48 +374,6 @@ export const siteConfig = {
       ],
     },
     {
-      id: "enterprise",
-      name: "Enterprise Architecture & Modernization",
-      navLabel: "BLK for Enterprise",
-      shortTitle: "Enterprise Systems",
-      badge: "ENTERPRISE DIGITAL SYSTEMS",
-      tagline: "Legacy System Modernization, Microservices & High-Volume Infrastructure",
-      description: "Mission-critical enterprise software, bespoke CRM/ERP systems, monolithic decomposition, and multi-region cloud resilience.",
-      icon: "Server",
-      color: "#3B82F6",
-      image: "/images/sectors/enterprise.jpg",
-      logo: "/images/sectors/enterprise-logo.png",
-      focus: ["Legacy Modernization", "Custom CRM & ERP", "Microservices", "Multi-Region Cloud"],
-      challenges: [
-        "Decades-old monolithic codebases hindering organizational agility and integration with modern APIs.",
-        "Enterprise security mandates requiring strict role-based access control (RBAC) and single sign-on (SSO).",
-        "High cost of infrastructure sprawl and unmonitored cloud resource allocation.",
-      ],
-      solutions: [
-        {
-          title: "Incremental Monolith Decomposition",
-          desc: "Safely carve out independent microservices without disrupting live enterprise operations.",
-        },
-        {
-          title: "Enterprise SSO & Role-Based Access Control",
-          desc: "Seamless SAML / Okta / Azure AD integration with granular department-level permission tiers.",
-        },
-        {
-          title: "Bespoke Enterprise Resource Planning (ERP)",
-          desc: "Unified internal operations connecting inventory, workforce scheduling, and financial reporting.",
-        },
-        {
-          title: "Multi-Region High Availability Clusters",
-          desc: "Geo-distributed Kubernetes clusters with automated disaster recovery and zero-downtime failover.",
-        },
-      ],
-      metrics: [
-        { label: "Availability", value: "99.99% Guaranteed" },
-        { label: "SSO Protocol", value: "SAML 2.0 / OAuth2" },
-        { label: "Failover RTO", value: "< 60 Seconds" },
-      ],
-    },
-    {
       id: "logistics",
       name: "Logistics, Supply Chain & Operations",
       navLabel: "BLK for Logistics",

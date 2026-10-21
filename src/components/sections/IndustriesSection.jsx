@@ -65,18 +65,6 @@ const industryThemes = {
     titleHover: 'group-hover:text-purple-700',
     ctaText: 'text-purple-700 hover:text-purple-800',
   },
-  enterprise: {
-    icon: Server,
-    color: '#3B82F6', // Blue
-    iconBg: 'bg-blue-50 border-blue-200 text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(59,130,246,0.35)]',
-    topStripe: 'bg-blue-500',
-    hoverBorder: 'group-hover:border-blue-500/50',
-    tagBg: 'bg-blue-50/90 text-blue-800 border-blue-200/80',
-    tagDot: 'bg-blue-500',
-    aura: 'from-blue-500/30 to-cyan-500/30',
-    titleHover: 'group-hover:text-blue-700',
-    ctaText: 'text-blue-700 hover:text-blue-800',
-  },
   logistics: {
     icon: Truck,
     color: '#2563EB', // Blue

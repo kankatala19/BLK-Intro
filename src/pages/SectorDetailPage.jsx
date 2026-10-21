@@ -28,7 +28,6 @@ const sectorIconMap = {
   healthtech: Activity,
   ecommerce: ShoppingBag,
   saas: Rocket,
-  enterprise: Server,
   logistics: Truck,
   education: GraduationCap,
   'real-estate': Briefcase,
@@ -369,3 +368,4 @@ export const SectorDetailPage = () => {
     </div>
   );
 };
+
