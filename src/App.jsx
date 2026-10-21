@@ -2,7 +2,6 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { ScrollToTop } from './components/common/ScrollToTop';
-import { ScrollSideEffects } from './components/common/ScrollSideEffects';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
@@ -17,7 +16,6 @@ function App() {
     <ThemeProvider>
       <Router>
         <ScrollToTop />
-        <ScrollSideEffects />
         <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 dark:bg-dark-950 text-slate-900 dark:text-white flex flex-col relative selection:bg-crimson-600 selection:text-white transition-colors duration-200">
           {/* Global Header & Navigation */}
           <Navbar />
