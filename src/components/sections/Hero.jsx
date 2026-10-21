@@ -53,9 +53,15 @@ export const Hero = () => {
               <Badge variant="crimson" showDot={true} className="py-1.5 px-3.5 text-xs font-mono tracking-wide shadow-sm">
                 {siteConfig.hero.badge}
               </Badge>
-              <span className="text-xs font-mono text-slate-300 hidden sm:inline-block">
-                // {siteConfig.companyName}
-              </span>
+              <div className="flex items-center gap-1.5 text-xs font-mono text-slate-300 hidden sm:inline-flex">
+                <span>// {siteConfig.companyName}</span>
+                <div className="flex items-center gap-1 ml-1" title="BLK 4 Core Disciplines">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+                </div>
+              </div>
             </motion.div>
 
             {/* Main Headline */}
@@ -110,23 +116,32 @@ export const Hero = () => {
               </Button>
             </motion.div>
 
-            {/* Operational Highlights Bar */}
+            {/* Operational Highlights Bar with 3D Pills */}
             <motion.div
               variants={fadeIn('up', 0.45)}
               className="pt-8 border-t border-white/15 flex flex-wrap items-center gap-3 sm:gap-4 text-xs"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-slate-200 font-medium shadow-sm">
+              <motion.div
+                whileHover={{ y: -3, scale: 1.04 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-slate-200 font-medium shadow-lg hover:border-crimson-500/50 transition-all cursor-default"
+              >
                 <ShieldCheck className="w-4 h-4 text-crimson-500 shrink-0" />
                 <span>Agile Engineering</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-slate-200 font-medium shadow-sm">
-                <Zap className="w-4 h-4 text-crimson-500 shrink-0" />
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -3, scale: 1.04 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-slate-200 font-medium shadow-lg hover:border-amber-500/50 transition-all cursor-default"
+              >
+                <Zap className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>Modern Tech Stack</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-slate-200 font-medium shadow-sm">
-                <Server className="w-4 h-4 text-crimson-500 shrink-0" />
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -3, scale: 1.04 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-slate-200 font-medium shadow-lg hover:border-blue-500/50 transition-all cursor-default"
+              >
+                <Server className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Startups to Enterprise Scale</span>
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
