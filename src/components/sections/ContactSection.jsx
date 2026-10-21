@@ -94,24 +94,24 @@ export const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="w-full lg:col-span-5 space-y-6"
           >
-            <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-white/10 space-y-6 shadow-sm">
+            <div className="bg-slate-900 dark:bg-dark-900 rounded-2xl p-6 sm:p-8 border border-slate-800 dark:border-white/10 space-y-6 shadow-xl text-white relative overflow-hidden">
               <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-crimson-600" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                <Briefcase className="w-5 h-5 text-crimson-500" />
+                <h3 className="text-xl font-bold text-white tracking-tight">
                   Direct Inquiries & Hire Us
                 </h3>
               </div>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shrink-0 shadow-sm">
+                  <div className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-crimson-400 shrink-0 shadow-sm">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-500 dark:text-muted-400 uppercase">Contact Email</div>
+                    <div className="text-xs font-mono text-slate-400 uppercase">Contact Email</div>
                     <a
                       href={`mailto:${siteConfig.contact.email}`}
-                      className="text-sm font-semibold text-slate-900 dark:text-white hover:text-crimson-600 transition-colors"
+                      className="text-sm font-semibold text-white hover:text-crimson-400 transition-colors"
                     >
                       {siteConfig.contact.email}
                     </a>
@@ -119,24 +119,24 @@ export const ContactSection = () => {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shrink-0 shadow-sm">
+                  <div className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-crimson-400 shrink-0 shadow-sm">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-500 dark:text-muted-400 uppercase">Response SLA</div>
-                    <div className="text-sm font-semibold text-slate-900 dark:text-white">
+                    <div className="text-xs font-mono text-slate-400 uppercase">Response SLA</div>
+                    <div className="text-sm font-semibold text-white">
                       {siteConfig.contact.responseSla}
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shrink-0 shadow-sm">
+                  <div className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-crimson-400 shrink-0 shadow-sm">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-500 dark:text-muted-400 uppercase">Status</div>
-                    <div className="text-sm font-semibold text-slate-900 dark:text-white">
+                    <div className="text-xs font-mono text-slate-400 uppercase">Availability</div>
+                    <div className="text-sm font-semibold text-white">
                       {siteConfig.contact.availability}
                     </div>
                   </div>
@@ -144,12 +144,12 @@ export const ContactSection = () => {
               </div>
 
               {/* Confidentiality Box */}
-              <div className="pt-4 border-t border-slate-200/80 dark:border-white/5 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-white">
-                  <Shield className="w-4 h-4 text-crimson-600" />
+              <div className="pt-4 border-t border-slate-800 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-semibold text-white">
+                  <Shield className="w-4 h-4 text-crimson-500" />
                   <span>Confidentiality & Mutual NDA</span>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-muted-400 leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   We respect intellectual property and business privacy. Every discussion is handled
                   with complete confidentiality.
                 </p>
@@ -157,9 +157,9 @@ export const ContactSection = () => {
             </div>
 
             {/* Availability Pill */}
-            <div className="glass-panel p-4 rounded-xl border border-slate-200/80 dark:border-white/5 flex items-center justify-between text-xs font-mono shadow-sm">
-              <span className="text-slate-600 dark:text-muted-400">BLK Solutions Availability:</span>
-              <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 font-semibold">
+            <div className="bg-slate-900 dark:bg-dark-900 p-4 rounded-xl border border-slate-800 text-white flex items-center justify-between text-xs font-mono shadow-md">
+              <span className="text-slate-300">BLK Solutions Availability:</span>
+              <span className="text-emerald-400 flex items-center gap-1.5 font-semibold">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 Active & Accepting
               </span>
@@ -174,7 +174,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="w-full lg:col-span-7"
           >
-            <div className="glass-panel rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200/80 dark:border-white/10 shadow-lg relative overflow-hidden bg-white/95 dark:bg-dark-900/90">
+            <div className="bg-white dark:bg-dark-900 rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200/90 dark:border-white/10 shadow-xl relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div

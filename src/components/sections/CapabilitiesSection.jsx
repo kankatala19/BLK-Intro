@@ -18,7 +18,7 @@ export const CapabilitiesSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="capabilities" className="py-20 md:py-28 bg-white dark:bg-dark-900/40 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
+    <section id="capabilities" className="py-20 md:py-28 bg-slate-100/70 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
       <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
       <Container className="relative z-10 w-full">
@@ -67,17 +67,17 @@ export const CapabilitiesSection = () => {
               <motion.div
                 key={cat.id}
                 variants={fadeIn('up', idx * 0.08)}
-                className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-white dark:bg-dark-900 border border-slate-200/90 dark:border-white/10 rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden shadow-sm hover:shadow-xl hover:border-crimson-600/40 transition-all"
               >
                 {/* Top Crimson Highlight */}
                 <div className="absolute top-0 left-0 h-[2px] w-0 bg-crimson-600 group-hover:w-full transition-all duration-400 ease-out" />
 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 group-hover:border-crimson-600/50 group-hover:bg-crimson-50 dark:group-hover:bg-crimson-950/30 transition-colors shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-slate-900 dark:bg-dark-800 border border-slate-800 dark:border-dark-700 flex items-center justify-center text-white group-hover:bg-crimson-600 group-hover:border-crimson-600 transition-colors shadow-md">
                       <IconComp className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-slate-100 dark:bg-dark-850 text-slate-600 dark:text-muted-400 border border-slate-200 dark:border-dark-750">
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-crimson-50 dark:bg-crimson-950/60 text-crimson-700 dark:text-crimson-300 border border-crimson-200/60 dark:border-crimson-900/40 font-semibold">
                       {cat.badge}
                     </span>
                   </div>
@@ -92,7 +92,7 @@ export const CapabilitiesSection = () => {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-200/80 dark:border-white/5 space-y-3">
+                <div className="pt-6 mt-6 border-t border-slate-100 dark:border-white/5 space-y-3">
                   <div className="space-y-1">
                     {cat.services.slice(0, 3).map((item) => (
                       <div

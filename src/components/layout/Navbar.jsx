@@ -99,6 +99,8 @@ export const Navbar = () => {
     setMobileExpandedCategory(mobileExpandedCategory === id ? null : id);
   };
 
+  const isHomeHero = location.pathname === '/' && !isScrolled && !mobileMenuOpen;
+
   return (
     <>
       {/* Top Navbar Header */}
@@ -106,6 +108,8 @@ export const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled || mobileMenuOpen
             ? 'bg-white/95 dark:bg-dark-950/95 backdrop-blur-md border-b border-slate-200/80 dark:border-white/10 shadow-sm dark:shadow-2xl py-3'
+            : isHomeHero
+            ? 'bg-[#07090E]/80 lg:bg-transparent backdrop-blur-sm py-3.5 lg:py-4 border-b border-white/10 lg:border-transparent'
             : 'bg-white/80 dark:bg-dark-950/70 backdrop-blur-sm lg:bg-transparent py-3.5 lg:py-4 border-b border-slate-200/50 dark:border-white/5 lg:border-transparent'
         }`}
       >
@@ -113,26 +117,38 @@ export const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Brand Logo */}
             <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center group-hover:border-crimson-600/60 transition-colors shadow-inner">
-                <span className="text-crimson-600 font-mono font-bold text-lg tracking-wider">
+              <div className={`w-9 h-9 rounded-lg border flex items-center justify-center transition-colors shadow-inner ${
+                isHomeHero
+                  ? 'bg-slate-900 border-white/20 text-crimson-500'
+                  : 'bg-slate-100 dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-crimson-600'
+              }`}>
+                <span className="font-mono font-bold text-lg tracking-wider">
                   B
                 </span>
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-bold tracking-tight text-lg text-slate-900 dark:text-white font-sans">
+                  <span className={`font-bold tracking-tight text-lg font-sans ${
+                    isHomeHero ? 'text-white' : 'text-slate-900 dark:text-white'
+                  }`}>
                     {siteConfig.name}
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-crimson-600 shadow-glow-red-sm" />
                 </div>
-                <span className="text-[10px] tracking-widest text-slate-500 dark:text-muted-400 font-mono uppercase -mt-1 hidden sm:block">
+                <span className={`text-[10px] tracking-widest font-mono uppercase -mt-1 hidden sm:block ${
+                  isHomeHero ? 'text-slate-300' : 'text-slate-500 dark:text-muted-400'
+                }`}>
                   Software Solutions
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation (Visible on lg: >= 1024px) */}
-            <nav className="hidden lg:flex items-center gap-1 bg-white/80 dark:bg-dark-900/75 p-1 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-sm dark:shadow-none">
+            <nav className={`hidden lg:flex items-center gap-1 p-1 rounded-full border backdrop-blur-md shadow-sm ${
+              isHomeHero
+                ? 'bg-black/50 border-white/15'
+                : 'bg-white/80 dark:bg-dark-900/75 border-slate-200 dark:border-white/10'
+            }`}>
               {siteConfig.navLinks.map((item) => {
                 const active = isActive(item.path);
 
@@ -151,8 +167,8 @@ export const Navbar = () => {
                           active
                             ? 'text-white bg-crimson-600 font-semibold shadow-sm'
                             : desktopServicesOpen
-                            ? 'text-slate-900 dark:text-white bg-slate-100 dark:bg-white/10'
-                            : 'text-slate-600 dark:text-muted-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
+                            ? (isHomeHero ? 'text-white bg-white/20' : 'text-slate-900 dark:text-white bg-slate-100 dark:bg-white/10')
+                            : (isHomeHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 dark:text-muted-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5')
                         }`}
                         aria-expanded={desktopServicesOpen}
                       >
@@ -243,6 +259,8 @@ export const Navbar = () => {
                     className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-colors ${
                       active
                         ? 'text-white bg-crimson-600 font-semibold shadow-sm'
+                        : isHomeHero
+                        ? 'text-slate-200 hover:text-white hover:bg-white/10'
                         : 'text-slate-600 dark:text-muted-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                     }`}
                   >
@@ -256,12 +274,16 @@ export const Navbar = () => {
             <div className="hidden lg:flex items-center gap-3">
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600 hover:border-crimson-600/40 transition-colors shadow-sm"
+                className={`p-2 rounded-lg border transition-colors shadow-sm ${
+                  isHomeHero
+                    ? 'bg-white/10 border-white/20 text-white hover:border-crimson-500'
+                    : 'bg-white dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600 hover:border-crimson-600/40'
+                }`}
                 aria-label={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
                 title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
               >
                 {theme === 'light' ? (
-                  <Moon className="w-4 h-4 text-slate-700" />
+                  <Moon className={`w-4 h-4 ${isHomeHero ? 'text-white' : 'text-slate-700'}`} />
                 ) : (
                   <Sun className="w-4 h-4 text-amber-400" />
                 )}
@@ -277,7 +299,7 @@ export const Navbar = () => {
                 icon={Briefcase}
                 iconPosition="right"
                 onClick={() => navigate('/contact')}
-                className="px-4 py-2 text-xs font-semibold"
+                className="px-4 py-2 text-xs font-semibold shadow-[0_0_20px_rgba(220,38,38,0.4)]"
               >
                 Hire Us
               </Button>
@@ -288,11 +310,15 @@ export const Navbar = () => {
               {/* Mobile Quick Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600 focus:outline-none shadow-sm"
+                className={`p-2 rounded-lg border transition-colors shadow-sm ${
+                  isHomeHero
+                    ? 'bg-white/10 border-white/20 text-white hover:text-crimson-400'
+                    : 'bg-white dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600'
+                }`}
                 aria-label="Toggle Theme"
               >
                 {theme === 'light' ? (
-                  <Moon className="w-4 h-4 text-slate-700" />
+                  <Moon className={`w-4 h-4 ${isHomeHero ? 'text-white' : 'text-slate-700'}`} />
                 ) : (
                   <Sun className="w-4 h-4 text-amber-400" />
                 )}
@@ -301,7 +327,11 @@ export const Navbar = () => {
               {/* Mobile Menu Hamburger / Close Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600 focus:outline-none shadow-sm"
+                className={`p-2 rounded-lg border transition-colors shadow-sm ${
+                  isHomeHero
+                    ? 'bg-white/10 border-white/20 text-white hover:text-crimson-400'
+                    : 'bg-white dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600'
+                }`}
                 aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
               >
                 {mobileMenuOpen ? (

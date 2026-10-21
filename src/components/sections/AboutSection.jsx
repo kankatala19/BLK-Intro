@@ -91,10 +91,10 @@ export const AboutSection = () => {
                 <motion.div
                   key={pillar.title}
                   variants={fadeIn('up', idx * 0.08)}
-                  className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 hover:border-crimson-600/40 transition-colors space-y-4 shadow-sm"
+                  className="bg-white dark:bg-dark-900 p-6 rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-crimson-600/40 transition-all space-y-4 shadow-sm hover:shadow-lg"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 shadow-sm">
-                    <IconComp className="w-5 h-5" />
+                  <div className="w-12 h-12 rounded-xl bg-slate-900 dark:bg-dark-800 border border-slate-800 dark:border-dark-700 flex items-center justify-center text-white shadow-md">
+                    <IconComp className="w-6 h-6 text-crimson-500" />
                   </div>
 
                   <div className="space-y-2">

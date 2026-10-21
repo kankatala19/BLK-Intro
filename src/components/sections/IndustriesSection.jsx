@@ -28,7 +28,7 @@ export const IndustriesSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="industries" className="py-24 md:py-32 bg-white dark:bg-dark-900/40 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
+    <section id="industries" className="py-24 md:py-32 bg-slate-100/70 dark:bg-dark-950 border-t border-slate-200/80 dark:border-white/5 relative transition-colors overflow-hidden w-full">
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
 
       <Container className="relative z-10 w-full">
@@ -77,11 +77,11 @@ export const IndustriesSection = () => {
               <motion.div
                 key={ind.id}
                 variants={fadeIn('up', index * 0.06)}
-                className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between group shadow-sm hover:shadow-md"
+                className="bg-white dark:bg-dark-900 border border-slate-200/90 dark:border-white/10 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:border-crimson-600/40 transition-all flex flex-col justify-between group"
               >
                 <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 group-hover:border-crimson-600/50 group-hover:bg-crimson-50 dark:group-hover:bg-crimson-950/30 transition-colors shadow-sm">
-                    <IconComp className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-xl bg-slate-900 dark:bg-dark-800 border border-slate-800 dark:border-dark-700 flex items-center justify-center text-white shadow-md group-hover:bg-crimson-600 group-hover:border-crimson-600 transition-colors">
+                    <IconComp className="w-6 h-6 text-crimson-500 group-hover:text-white transition-colors" />
                   </div>
 
                   <div className="space-y-2">
