@@ -47,147 +47,134 @@ export const SectorDetailPage = () => {
   const otherSectors = siteConfig.industries.filter((s) => s.id !== sector.id);
 
   return (
-    <div className="pt-20 pb-20 w-full max-w-full overflow-x-hidden">
-      {/* 1. Sector Hero Header (Full Cinematic Background like Home Hero) */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-[#07090E] text-white transition-colors w-full min-h-[75vh] lg:min-h-[80vh] flex items-center border-b border-white/10">
-        {/* Background Image Layer: Sector-Specific Architecture Photo */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-          <motion.img
-            src={sector.image}
-            alt={`${sector.name} Architecture`}
-            initial={{ scale: 1.06, opacity: 0 }}
-            animate={{ scale: [1.06, 1.01, 1.04], opacity: 1 }}
-            transition={{
-              scale: { duration: 25, repeat: Infinity, ease: 'easeInOut' },
-              opacity: { duration: 1, ease: 'easeOut' },
-            }}
-            className="w-full h-full object-cover object-[75%_25%] md:object-[70%_25%] lg:object-[65%_30%] opacity-90 brightness-[0.88] contrast-[1.12] saturate-[1.1] transition-all"
-            onError={(e) => {
-              // Fallback image if custom sector image not found
-              e.currentTarget.src = '/images/blk-img.jpg';
-            }}
-          />
-
-          {/* Ambient Gradient Overlays: Deep cinematic gradient for maximum text contrast on left, fully highlighted image across right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07090E]/95 via-[#07090E]/80 via-50% to-[#07090E]/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#07090E]/90 via-transparent via-20% to-[#07090E]" />
-
-          {/* Subtle Tech Grid Overlay */}
-          <div className="absolute inset-0 bg-tech-grid opacity-15 mix-blend-overlay" />
-
-          {/* Sector-Specific Colored Ambient Glows */}
-          <div
-            className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[400px] rounded-full blur-[140px] opacity-25"
-            style={{ backgroundColor: sector.color || '#2563EB' }}
-          />
-          <div
-            className="absolute top-1/3 right-10 w-[450px] h-[300px] rounded-full blur-[120px] opacity-20"
-            style={{ backgroundColor: sector.color || '#DC2626' }}
-          />
-        </div>
+    <div className="pt-24 pb-20 w-full max-w-full overflow-x-hidden">
+      {/* 1. Sector Hero Header (Executive Dark Midnight Theme) */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-[#080B12] via-[#0E1424] to-[#0A0D16] text-white border-b border-white/10 relative w-full overflow-hidden">
+        {/* Ambient Spotlights */}
+        <div
+          className="absolute top-1/4 left-1/4 w-[500px] h-[350px] rounded-full blur-[140px] pointer-events-none opacity-20"
+          style={{ backgroundColor: sector.color || '#2563EB' }}
+        />
+        <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
         <Container className="relative z-10 w-full">
-          <div className="max-w-3xl lg:max-w-4xl py-4 sm:py-8 space-y-7">
-            {/* Breadcrumb Navigation */}
-            <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
-              <Link to="/" className="hover:text-white transition-colors">
-                Home
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-              <Link to="/industries" className="hover:text-white transition-colors">
-                Industries
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-              <span className="text-white font-semibold">{sector.name}</span>
-            </div>
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-8">
+            <Link to="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <Link to="/industries" className="hover:text-white transition-colors">
+              Industries
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-white font-semibold">{sector.name}</span>
+          </div>
 
-            {/* Sector Identity & Logo Row */}
-            <div className="flex items-center gap-4">
-              {/* Sector Dedicated Logo Container (Ready for provided sector logo) */}
-              <div
-                className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center p-2.5 shadow-2xl relative group overflow-hidden"
-                title={`${sector.name} Logo`}
-              >
-                {sector.logo && !sector.logo.includes('sectors/') ? (
-                  <img
-                    src={sector.logo}
-                    alt={`${sector.name} Logo`}
-                    className="w-full h-full object-contain"
-                  />
-                ) : (
-                  <div
-                    className="w-full h-full flex items-center justify-center text-white"
-                    style={{ color: sector.color }}
-                  >
-                    <IconComp className="w-8 h-8" />
-                  </div>
-                )}
-              </div>
-
-              <div className="space-y-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 border border-white/15 backdrop-blur-md text-xs font-mono text-slate-200">
-                  <span
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: sector.color }}
-                  />
-                  <span>{sector.badge || 'SECTOR ARCHITECTURE'}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Sector Identity, Logo & Headline */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Sector Identity & Logo Row */}
+              <div className="flex items-center gap-4">
+                {/* Sector Dedicated Logo Container (Ready for provided sector logo) */}
+                <div
+                  className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center p-2.5 shadow-2xl relative group overflow-hidden"
+                  title={`${sector.name} Logo`}
+                >
+                  {sector.logo && !sector.logo.includes('sectors/') ? (
+                    <img
+                      src={sector.logo}
+                      alt={`${sector.name} Logo`}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full flex items-center justify-center text-white"
+                      style={{ color: sector.color }}
+                    >
+                      <IconComp className="w-8 h-8" />
+                    </div>
+                  )}
                 </div>
-                <div className="text-xs font-mono text-slate-400">
-                  Specialized Practice Group
-                </div>
-              </div>
-            </div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
-              {sector.navLabel || `BLK for ${sector.name}`}
-            </h1>
-
-            {/* Tagline */}
-            <p className="text-lg sm:text-xl font-medium text-slate-200">
-              {sector.tagline}
-            </p>
-
-            {/* Supporting Description */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
-              {sector.description}
-            </p>
-
-            {/* Focus Tags Bar */}
-            {sector.focus && (
-              <div className="flex flex-wrap gap-2 pt-1">
-                {sector.focus.map((item) => (
-                  <span
-                    key={item}
-                    className="px-3 py-1 rounded-lg bg-white/5 border border-white/15 backdrop-blur-md text-xs font-mono text-slate-300 flex items-center gap-1.5"
-                  >
+                <div className="space-y-1">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
                     <span
-                      className="w-1.5 h-1.5 rounded-full"
+                      className="w-2 h-2 rounded-full"
                       style={{ backgroundColor: sector.color }}
                     />
-                    {item}
-                  </span>
-                ))}
+                    <span>{sector.badge || 'SECTOR ARCHITECTURE'}</span>
+                  </div>
+                  <div className="text-xs font-mono text-slate-400">
+                    Specialized Practice Group
+                  </div>
+                </div>
               </div>
-            )}
 
-            {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={() => navigate('/contact')}
-                className="px-7 py-3.5 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white font-mono font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-[0_0_25px_rgba(220,38,38,0.5)] hover:shadow-[0_0_35px_rgba(220,38,38,0.7)] cursor-pointer"
+              {/* Title & Tagline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                  {sector.navLabel || `BLK for ${sector.name}`}
+                </h1>
+                <p className="text-lg sm:text-xl font-medium text-slate-200">
+                  {sector.tagline}
+                </p>
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal max-w-2xl">
+                  {sector.description}
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap gap-4">
+                <button
+                  type="button"
+                  onClick={() => navigate('/contact')}
+                  className="px-6 py-3.5 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white font-mono font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)] cursor-pointer"
+                >
+                  <span>Consult {sector.shortTitle || 'Sector'} Specialists</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link
+                  to="/industries"
+                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-mono font-semibold text-xs uppercase tracking-wider transition-all border border-white/15 flex items-center gap-2"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>All Sectors</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Dedicated Sector Featured Image Container (Ready for provided image) */}
+            <div className="lg:col-span-5">
+              <motion.div
+                whileHover={{ y: -6, scale: 1.015 }}
+                transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group bg-slate-900/80 backdrop-blur-md"
               >
-                <span>Consult {sector.shortTitle || 'Sector'} Specialists</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <Link
-                to="/industries"
-                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-mono font-semibold text-xs uppercase tracking-wider transition-all border border-white/20 backdrop-blur-md flex items-center gap-2"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span>All Sectors</span>
-              </Link>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
+                  <img
+                    src={sector.image}
+                    alt={`${sector.name} Architecture`}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-[0.9] contrast-[1.05]"
+                    onError={(e) => {
+                      // Fallback image if custom sector image not yet placed in public/images/sectors/
+                      e.currentTarget.src = '/images/blk-img.jpg';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080B12] via-transparent to-transparent opacity-80" />
+
+                  {/* Sector Image Tag Overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md text-[11px] font-mono text-white border border-white/15 flex items-center gap-1.5">
+                      <IconComp className="w-3.5 h-3.5" style={{ color: sector.color }} />
+                      <span>{sector.shortTitle || sector.name}</span>
+                    </span>
+                    <span className="text-[10px] font-mono text-slate-300 bg-white/10 px-2 py-0.5 rounded border border-white/10">
+                      Production Architecture
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </Container>

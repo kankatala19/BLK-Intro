@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { IndustriesSection } from '../components/sections/IndustriesSection';
 import { ArrowRight, ShieldCheck, Lock, Activity, Server, FileCheck, Sparkles } from 'lucide-react';
@@ -9,39 +8,18 @@ export const IndustriesPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="pt-20 pb-20 w-full max-w-full overflow-x-hidden">
-      {/* 1. Page Header (Full Cinematic Background like Home Hero) */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-[#07090E] text-white transition-colors w-full min-h-[68vh] flex items-center border-b border-white/10">
-        {/* Full Background Image Layer */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-          <motion.img
-            src="/images/blk-img.jpg"
-            alt="BLK Industries & Practice Groups"
-            initial={{ scale: 1.06, opacity: 0 }}
-            animate={{ scale: [1.06, 1.01, 1.04], opacity: 1 }}
-            transition={{
-              scale: { duration: 25, repeat: Infinity, ease: 'easeInOut' },
-              opacity: { duration: 1, ease: 'easeOut' },
-            }}
-            className="w-full h-full object-cover object-[75%_25%] md:object-[70%_25%] lg:object-[65%_30%] opacity-90 brightness-[0.88] contrast-[1.12] saturate-[1.1] transition-all"
-          />
+    <div className="pt-24 pb-20 w-full max-w-full overflow-x-hidden">
+      {/* 1. Page Header (Executive Dark Midnight Theme) */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-[#080B12] via-[#0E1424] to-[#0A0D16] text-white border-b border-white/10 relative w-full overflow-hidden">
+        {/* Ambient Spotlights */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-crimson-600/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 
-          {/* Ambient Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07090E]/95 via-[#07090E]/80 via-50% to-[#07090E]/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#07090E]/90 via-transparent via-20% to-[#07090E]" />
-
-          {/* Subtle Tech Grid Overlay */}
-          <div className="absolute inset-0 bg-tech-grid opacity-15 mix-blend-overlay" />
-
-          {/* Ambient Glows */}
-          <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[400px] bg-blue-600/15 rounded-full blur-[140px]" />
-          <div className="absolute top-1/3 right-10 w-[450px] h-[300px] bg-crimson-600/15 rounded-full blur-[120px]" />
-        </div>
-
-        <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6 w-full py-6">
+        <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6 w-full">
           {/* Brand Indicator Pill */}
           <div className="flex justify-center">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-xs font-mono text-white shadow-lg">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 backdrop-blur-md text-xs font-mono text-white shadow-lg">
               <div className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
                 <span className="w-2 h-2 rounded-full bg-[#DC2626]" />
@@ -59,7 +37,7 @@ export const IndustriesPage = () => {
             <span className="text-gradient-crimson">Compliance Expertise</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
             We adapt our engineering methodologies, data governance protocols, and security frameworks to meet
             the operational, regulatory, and performance demands of each industry sector.
           </p>

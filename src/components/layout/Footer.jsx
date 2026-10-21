@@ -15,7 +15,7 @@ export const Footer = () => {
           <div className="md:col-span-5 space-y-4">
             <Link to="/" className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5">
-                <img src="/images/logo.jpg" alt="BLK Logo" className="w-full h-full object-contain" />
+                <img src="/images/B.jpeg" alt="BLK Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">

@@ -103,13 +103,7 @@ export const Navbar = () => {
     setMobileExpandedCategory(mobileExpandedCategory === id ? null : id);
   };
 
-  const isDarkHero =
-    (location.pathname === '/' ||
-      location.pathname.startsWith('/industries') ||
-      location.pathname.startsWith('/services') ||
-      location.pathname.startsWith('/about')) &&
-    !isScrolled &&
-    !mobileMenuOpen;
+  const isHomeHero = location.pathname === '/' && !isScrolled && !mobileMenuOpen;
 
   return (
     <>
@@ -118,7 +112,7 @@ export const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled || mobileMenuOpen
             ? 'bg-white/95 dark:bg-dark-950/95 backdrop-blur-md border-b border-slate-200/80 dark:border-white/10 shadow-sm dark:shadow-2xl py-3'
-            : isDarkHero
+            : isHomeHero
             ? 'bg-[#07090E]/80 lg:bg-transparent backdrop-blur-sm py-3.5 lg:py-4 border-b border-white/10 lg:border-transparent'
             : 'bg-white/80 dark:bg-dark-950/70 backdrop-blur-sm lg:bg-transparent py-3.5 lg:py-4 border-b border-slate-200/50 dark:border-white/5 lg:border-transparent'
         }`}
@@ -129,7 +123,7 @@ export const Navbar = () => {
             <Link to="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:border-crimson-500/60 transition-colors">
                 <img
-                  src="/images/logo.jpg"
+                  src="/images/B.jpeg"
                   alt="BLK Logo"
                   className="w-full h-full object-contain"
                 />
@@ -137,7 +131,7 @@ export const Navbar = () => {
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
                   <span className={`font-bold tracking-tight text-lg font-sans ${
-                    isDarkHero ? 'text-white' : 'text-slate-900'
+                    isHomeHero ? 'text-white' : 'text-slate-900'
                   }`}>
                     {siteConfig.name}
                   </span>
@@ -150,7 +144,7 @@ export const Navbar = () => {
                   </div>
                 </div>
                 <span className={`text-[10px] tracking-widest font-mono uppercase -mt-0.5 hidden sm:block ${
-                  isDarkHero ? 'text-slate-300' : 'text-slate-500'
+                  isHomeHero ? 'text-slate-300' : 'text-slate-500'
                 }`}>
                   Software Solutions
                 </span>
@@ -159,7 +153,7 @@ export const Navbar = () => {
 
             {/* Desktop Navigation (Visible on lg: >= 1024px) */}
             <nav className={`hidden lg:flex items-center gap-1 p-1 rounded-full border backdrop-blur-md shadow-sm ${
-              isDarkHero
+              isHomeHero
                 ? 'bg-black/50 border-white/15'
                 : 'bg-white/80 dark:bg-dark-900/75 border-slate-200 dark:border-white/10'
             }`}>
@@ -181,8 +175,8 @@ export const Navbar = () => {
                           active
                             ? 'text-white bg-crimson-600 font-semibold shadow-sm'
                             : desktopServicesOpen
-                            ? (isDarkHero ? 'text-white bg-white/20' : 'text-slate-900 bg-slate-100')
-                            : (isDarkHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')
+                            ? (isHomeHero ? 'text-white bg-white/20' : 'text-slate-900 bg-slate-100')
+                            : (isHomeHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')
                         }`}
                         aria-expanded={desktopServicesOpen}
                       >
@@ -284,8 +278,8 @@ export const Navbar = () => {
                           active
                             ? 'text-white bg-crimson-600 font-semibold shadow-sm'
                             : desktopIndustriesOpen
-                            ? (isDarkHero ? 'text-white bg-white/20' : 'text-slate-900 bg-slate-100')
-                            : (isDarkHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')
+                            ? (isHomeHero ? 'text-white bg-white/20' : 'text-slate-900 bg-slate-100')
+                            : (isHomeHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')
                         }`}
                         aria-expanded={desktopIndustriesOpen}
                       >
@@ -354,7 +348,7 @@ export const Navbar = () => {
                     className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-colors ${
                       active
                         ? 'text-white bg-crimson-600 font-semibold shadow-sm'
-                        : isDarkHero
+                        : isHomeHero
                         ? 'text-slate-200 hover:text-white hover:bg-white/10'
                         : 'text-slate-600 dark:text-muted-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                     }`}
