@@ -16,7 +16,7 @@ import { Button } from '../ui/Button';
 import { siteConfig } from '../../data/siteConfig';
 import { fadeIn, staggerContainer, viewportOnce } from '../../utils/motion';
 
-export const ApproachCultureSection = () => {
+export const ApproachCultureSection = ({ showCultureBanner = true }) => {
   const navigate = useNavigate();
 
   return (
@@ -54,7 +54,7 @@ export const ApproachCultureSection = () => {
         </motion.div>
 
         {/* 4-Step Agile Delivery Framework */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ${showCultureBanner ? 'mb-16' : ''}`}>
           {siteConfig.approachAndCulture.steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -91,45 +91,47 @@ export const ApproachCultureSection = () => {
         </div>
 
         {/* Work Culture Callout Banner */}
-        <div className="glass-panel rounded-2xl p-6 sm:p-10 border border-slate-200 dark:border-white/10 relative overflow-hidden bg-white/95 dark:bg-dark-900/90 shadow-md w-full">
-          <div className="absolute -right-10 -bottom-10 w-48 sm:w-64 h-48 sm:h-64 bg-crimson-600/10 rounded-full blur-3xl pointer-events-none" />
+        {showCultureBanner && (
+          <div className="glass-panel rounded-2xl p-6 sm:p-10 border border-slate-200 dark:border-white/10 relative overflow-hidden bg-white/95 dark:bg-dark-900/90 shadow-md w-full">
+            <div className="absolute -right-10 -bottom-10 w-48 sm:w-64 h-48 sm:h-64 bg-crimson-600/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-3">
-              <Badge variant="outline" className="text-xs font-mono">
-                CULTURE & COLLABORATION
-              </Badge>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                How We Collaborate With Your Team
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-muted-300 leading-relaxed max-w-2xl">
-                We operate as an extension of your product organization. You get direct access to our
-                senior engineers, transparent code repositories, automated staging previews, and
-                weekly video syncs. No convoluted middle layers.
-              </p>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-3">
+                <Badge variant="outline" className="text-xs font-mono">
+                  CULTURE & COLLABORATION
+                </Badge>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                  How We Collaborate With Your Team
+                </h3>
+                <p className="text-sm text-slate-600 dark:text-muted-300 leading-relaxed max-w-2xl">
+                  We operate as an extension of your product organization. You get direct access to our
+                  senior engineers, transparent code repositories, automated staging previews, and
+                  weekly video syncs. No convoluted middle layers.
+                </p>
+              </div>
 
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end">
-              <Button
-                variant="primary"
-                size="md"
-                icon={ArrowRight}
-                onClick={() => navigate('/contact')}
-                className="w-full sm:w-auto lg:w-full justify-center"
-              >
-                Hire Our Team
-              </Button>
-              <Button
-                variant="secondary"
-                size="md"
-                onClick={() => navigate('/contact')}
-                className="w-full sm:w-auto lg:w-full justify-center text-xs"
-              >
-                Schedule Introduction
-              </Button>
+              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end">
+                <Button
+                  variant="primary"
+                  size="md"
+                  icon={ArrowRight}
+                  onClick={() => navigate('/contact')}
+                  className="w-full sm:w-auto lg:w-full justify-center"
+                >
+                  Hire Our Team
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="md"
+                  onClick={() => navigate('/contact')}
+                  className="w-full sm:w-auto lg:w-full justify-center text-xs"
+                >
+                  Schedule Introduction
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </Container>
     </section>
   );

@@ -294,7 +294,7 @@ export const siteConfig = {
     description:
       "Whether you are planning a new software project, exploring AI integration, upgrading a design system, or looking for an agile development partner, we are ready to listen.",
     email: "contact@blksoftware.com",
-    availability: "Accepting inquiries for Q3/Q4",
+    availability: "Monday to Friday, 9:00 AM - 6:00 PM",
     responseSla: "Within 24 business hours",
     serviceOptions: [
       "Bespoke Software Development",
