@@ -224,17 +224,20 @@ export const Navbar = () => {
                                         <IconComp className="w-3.5 h-3.5" />
                                       </div>
                                       <div>
-                                        <h4 className="text-xs font-bold text-slate-900 dark:text-white group-hover/cat:text-crimson-600 transition-colors">
+                                        <Link
+                                          to={`/services?category=${category.id}`}
+                                          className="text-xs font-bold text-slate-900 group-hover/cat:text-crimson-600 transition-colors"
+                                        >
                                           {category.title}
-                                        </h4>
+                                        </Link>
                                       </div>
                                     </div>
                                     <ul className="space-y-1.5 pl-1">
                                       {category.services.slice(0, 3).map((sub) => (
                                         <li key={sub.name}>
                                           <Link
-                                            to="/services"
-                                            className="text-[11px] text-slate-600 dark:text-muted-400 hover:text-crimson-600 dark:hover:text-white transition-colors block text-left"
+                                            to={`/services?category=${category.id}`}
+                                            className="text-[11px] text-slate-600 hover:text-crimson-600 transition-colors block text-left"
                                           >
                                             • {sub.name}
                                           </Link>
@@ -451,12 +454,12 @@ export const Navbar = () => {
                               </button>
 
                               {isExpanded && (
-                                <div className="p-2.5 pt-1 space-y-1.5 bg-slate-50 dark:bg-dark-900/50 border-t border-slate-100 dark:border-white/5">
+                                <div className="p-2.5 pt-1 space-y-1.5 bg-slate-50 border-t border-slate-100">
                                   {category.services.map((sub) => (
                                     <Link
                                       key={sub.name}
-                                      to="/services"
-                                      className="w-full text-left text-[11px] text-slate-600 dark:text-muted-300 hover:text-crimson-600 dark:hover:text-white py-1 px-2 rounded hover:bg-slate-100 dark:hover:bg-dark-800 transition-colors block"
+                                      to={`/services?category=${category.id}`}
+                                      className="w-full text-left text-[11px] text-slate-600 hover:text-crimson-600 py-1 px-2 rounded hover:bg-slate-100 transition-colors block"
                                     >
                                       • {sub.name}
                                     </Link>

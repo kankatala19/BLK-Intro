@@ -144,7 +144,7 @@ export const CapabilitiesSection = () => {
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 className="group relative cursor-pointer"
-                onClick={() => navigate('/services')}
+                onClick={() => navigate(`/services?category=${cat.id}`)}
               >
                 {/* 1. Multi-colour Ambient Back Glow (4 Logo Colors: Yellow, Red, Blue, Green) */}
                 <div
@@ -223,7 +223,7 @@ export const CapabilitiesSection = () => {
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        navigate('/services');
+                        navigate(`/services?category=${cat.id}`);
                       }}
                       className={`w-full pt-2 flex items-center justify-between text-xs font-mono font-bold transition-all ${theme.ctaText}`}
                     >
