@@ -5,6 +5,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  ChevronRight,
   ArrowRight,
   Code2,
   Palette,
@@ -30,9 +31,12 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+  const [desktopIndustriesOpen, setDesktopIndustriesOpen] = useState(false);
   const [mobileExpandedCategory, setMobileExpandedCategory] = useState(null);
   const [mobileServicesAccordionOpen, setMobileServicesAccordionOpen] = useState(false);
+  const [mobileIndustriesAccordionOpen, setMobileIndustriesAccordionOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const industriesDropdownRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -72,6 +76,7 @@ export const Navbar = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setDesktopServicesOpen(false);
+    setDesktopIndustriesOpen(false);
   }, [location.pathname]);
 
   // Close dropdown on outside click
@@ -79,6 +84,9 @@ export const Navbar = () => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDesktopServicesOpen(false);
+      }
+      if (industriesDropdownRef.current && !industriesDropdownRef.current.contains(event.target)) {
+        setDesktopIndustriesOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -152,7 +160,7 @@ export const Navbar = () => {
               {siteConfig.navLinks.map((item) => {
                 const active = isActive(item.path);
 
-                if (item.hasDropdown) {
+                if (item.path === '/services') {
                   return (
                     <div
                       key={item.label}
@@ -167,8 +175,8 @@ export const Navbar = () => {
                           active
                             ? 'text-white bg-crimson-600 font-semibold shadow-sm'
                             : desktopServicesOpen
-                            ? (isHomeHero ? 'text-white bg-white/20' : 'text-slate-900 dark:text-white bg-slate-100 dark:bg-white/10')
-                            : (isHomeHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 dark:text-muted-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5')
+                            ? (isHomeHero ? 'text-white bg-white/20' : 'text-slate-900 bg-slate-100')
+                            : (isHomeHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')
                         }`}
                         aria-expanded={desktopServicesOpen}
                       >
@@ -188,21 +196,21 @@ export const Navbar = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 8, scale: 0.98 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[720px] bg-white dark:bg-dark-900/95 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-2xl backdrop-blur-xl z-50 text-slate-800 dark:text-white"
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[720px] bg-white border border-slate-200 rounded-2xl p-6 shadow-2xl backdrop-blur-xl z-50 text-slate-800"
                           >
                             {/* Mega menu header */}
-                            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-white/5">
+                            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
                               <div>
-                                <div className="text-xs font-mono text-crimson-600 dark:text-crimson-400 uppercase tracking-wider font-semibold">
+                                <div className="text-xs font-mono text-crimson-600 uppercase tracking-wider font-semibold">
                                   Core Capabilities & Solutions
                                 </div>
-                                <p className="text-[11px] text-slate-500 dark:text-muted-400">
+                                <p className="text-[11px] text-slate-500">
                                   Comprehensive software development, applied AI, design, and growth engineering.
                                 </p>
                               </div>
                               <Link
                                 to="/services"
-                                className="text-xs text-crimson-600 hover:text-crimson-700 dark:text-white dark:hover:text-crimson-400 font-mono flex items-center gap-1 transition-colors font-medium"
+                                className="text-xs text-crimson-600 hover:text-crimson-700 font-mono flex items-center gap-1 transition-colors font-medium"
                               >
                                 <span>Explore All Services</span>
                                 <ArrowRight className="w-3.5 h-3.5 text-crimson-600" />
@@ -217,10 +225,10 @@ export const Navbar = () => {
                                 return (
                                   <div
                                     key={category.id}
-                                    className="p-3.5 rounded-xl bg-slate-50 dark:bg-dark-850/50 border border-slate-200/60 dark:border-white/5 hover:border-crimson-600/30 transition-colors group/cat"
+                                    className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60 hover:border-crimson-600/30 transition-colors group/cat"
                                   >
                                     <div className="flex items-center gap-2.5 mb-2">
-                                      <div className="w-7 h-7 rounded-lg bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 group-hover/cat:border-crimson-600/50 shadow-sm">
+                                      <div className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-crimson-600 group-hover/cat:border-crimson-600/50 shadow-sm">
                                         <IconComp className="w-3.5 h-3.5" />
                                       </div>
                                       <div>
@@ -247,6 +255,84 @@ export const Navbar = () => {
                                   </div>
                                 );
                               })}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                if (item.path === '/industries') {
+                  return (
+                    <div
+                      key={item.label}
+                      ref={industriesDropdownRef}
+                      className="relative"
+                      onMouseEnter={() => setDesktopIndustriesOpen(true)}
+                      onMouseLeave={() => setDesktopIndustriesOpen(false)}
+                    >
+                      <Link
+                        to={item.path}
+                        className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-colors flex items-center gap-1.5 ${
+                          active
+                            ? 'text-white bg-crimson-600 font-semibold shadow-sm'
+                            : desktopIndustriesOpen
+                            ? (isHomeHero ? 'text-white bg-white/20' : 'text-slate-900 bg-slate-100')
+                            : (isHomeHero ? 'text-slate-200 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')
+                        }`}
+                        aria-expanded={desktopIndustriesOpen}
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                            desktopIndustriesOpen ? 'rotate-180 text-crimson-600' : ''
+                          }`}
+                        />
+                      </Link>
+
+                      {/* Industries Vertical Dropdown (Styled Matching User Reference Screenshot) */}
+                      <AnimatePresence>
+                        {desktopIndustriesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                            transition={{ duration: 0.18 }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[340px] bg-white border border-slate-200/90 rounded-2xl p-2.5 shadow-2xl backdrop-blur-xl z-50 text-slate-800"
+                          >
+                            <div className="px-3 pt-2 pb-1.5 border-b border-slate-100 flex items-center justify-between">
+                              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold">
+                                Sectors We Support
+                              </span>
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                            </div>
+
+                            <div className="py-1 space-y-0.5">
+                              {siteConfig.industries.map((sec) => (
+                                <Link
+                                  key={sec.id}
+                                  to={`/industries/${sec.id}`}
+                                  onClick={() => setDesktopIndustriesOpen(false)}
+                                  className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-800 hover:text-crimson-600 hover:bg-slate-50 transition-all group/item"
+                                >
+                                  <span className="group-hover/item:translate-x-1 transition-transform">
+                                    {sec.navLabel || `BLK for ${sec.name}`}
+                                  </span>
+                                  <ChevronRight className="w-4 h-4 text-slate-300 group-hover/item:text-crimson-600 group-hover/item:translate-x-0.5 transition-all" />
+                                </Link>
+                              ))}
+                            </div>
+
+                            <div className="pt-2 mt-1 border-t border-slate-100 px-1">
+                              <Link
+                                to="/industries"
+                                onClick={() => setDesktopIndustriesOpen(false)}
+                                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-mono font-semibold text-crimson-600 hover:bg-crimson-50 transition-colors"
+                              >
+                                <span>Explore All Sector Profiles</span>
+                                <ArrowRight className="w-3.5 h-3.5" />
+                              </Link>
                             </div>
                           </motion.div>
                         )}
@@ -474,18 +560,65 @@ export const Navbar = () => {
                   </AnimatePresence>
                 </div>
 
-                {/* Industries */}
-                <Link
-                  to="/industries"
-                  className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-medium rounded-xl transition-colors ${
-                    isActive('/industries')
-                      ? 'bg-crimson-50 dark:bg-crimson-950/40 text-crimson-600 dark:text-crimson-400 font-semibold shadow-sm'
-                      : 'text-slate-700 dark:text-muted-200 hover:bg-slate-100 dark:hover:bg-dark-850'
-                  }`}
-                >
-                  <span>Industries</span>
-                  {isActive('/industries') && <span className="w-1.5 h-1.5 rounded-full bg-crimson-600" />}
-                </Link>
+                {/* Industries with Expandable Accordion for Mobile */}
+                <div className="rounded-xl bg-slate-50 border border-slate-200/80 overflow-hidden">
+                  <div className="flex items-center justify-between px-3.5 py-2.5">
+                    <Link
+                      to="/industries"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-sm font-medium text-slate-900 flex items-center gap-2"
+                    >
+                      <Briefcase className="w-4 h-4 text-crimson-600" />
+                      <span>Industries</span>
+                    </Link>
+                    <button
+                      onClick={() =>
+                        setMobileIndustriesAccordionOpen(!mobileIndustriesAccordionOpen)
+                      }
+                      className="p-1 text-slate-500 hover:text-slate-900"
+                      aria-label="Toggle Industries Accordion"
+                    >
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          mobileIndustriesAccordionOpen ? 'rotate-180 text-crimson-600' : ''
+                        }`}
+                      />
+                    </button>
+                  </div>
+
+                  <AnimatePresence>
+                    {mobileIndustriesAccordionOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-3 pb-3 space-y-1 border-t border-slate-200/60 pt-2"
+                      >
+                        {siteConfig.industries.map((sec) => (
+                          <Link
+                            key={sec.id}
+                            to={`/industries/${sec.id}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-slate-700 hover:text-crimson-600 hover:bg-white transition-colors"
+                          >
+                            <span>{sec.navLabel || `BLK for ${sec.name}`}</span>
+                            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                          </Link>
+                        ))}
+                        <div className="pt-1.5 border-t border-slate-200/40">
+                          <Link
+                            to="/industries"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block text-[11px] font-mono text-crimson-600 font-semibold px-3 py-1.5 rounded hover:bg-white"
+                          >
+                            • View All Industries Overview ➔
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 {/* Contact Us */}
                 <Link

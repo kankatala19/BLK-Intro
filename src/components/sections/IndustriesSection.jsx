@@ -8,6 +8,8 @@ import {
   Rocket,
   Truck,
   GraduationCap,
+  Server,
+  Briefcase,
   ArrowRight,
 } from 'lucide-react';
 import { Container } from '../ui/Container';
@@ -51,7 +53,7 @@ const industryThemes = {
     titleHover: 'group-hover:text-amber-700',
     ctaText: 'text-amber-700 hover:text-amber-800',
   },
-  startups: {
+  saas: {
     icon: Rocket,
     color: '#8B5CF6', // Purple
     iconBg: 'bg-purple-50 border-purple-200 text-purple-600 group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-600 group-hover:shadow-[0_8px_20px_rgba(139,92,246,0.35)]',
@@ -62,6 +64,18 @@ const industryThemes = {
     aura: 'from-purple-500/30 to-indigo-500/30',
     titleHover: 'group-hover:text-purple-700',
     ctaText: 'text-purple-700 hover:text-purple-800',
+  },
+  enterprise: {
+    icon: Server,
+    color: '#3B82F6', // Blue
+    iconBg: 'bg-blue-50 border-blue-200 text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(59,130,246,0.35)]',
+    topStripe: 'bg-blue-500',
+    hoverBorder: 'group-hover:border-blue-500/50',
+    tagBg: 'bg-blue-50/90 text-blue-800 border-blue-200/80',
+    tagDot: 'bg-blue-500',
+    aura: 'from-blue-500/30 to-cyan-500/30',
+    titleHover: 'group-hover:text-blue-700',
+    ctaText: 'text-blue-700 hover:text-blue-800',
   },
   logistics: {
     icon: Truck,
@@ -75,7 +89,7 @@ const industryThemes = {
     titleHover: 'group-hover:text-blue-700',
     ctaText: 'text-blue-700 hover:text-blue-800',
   },
-  edtech: {
+  education: {
     icon: GraduationCap,
     color: '#DC2626', // Crimson / Rose
     iconBg: 'bg-rose-50 border-rose-200 text-rose-600 group-hover:bg-rose-600 group-hover:text-white group-hover:border-rose-600 group-hover:shadow-[0_8px_20px_rgba(220,38,38,0.35)]',
@@ -86,6 +100,18 @@ const industryThemes = {
     aura: 'from-rose-500/30 to-red-500/30',
     titleHover: 'group-hover:text-rose-700',
     ctaText: 'text-rose-700 hover:text-rose-800',
+  },
+  'real-estate': {
+    icon: Briefcase,
+    color: '#7C3AED', // Violet
+    iconBg: 'bg-violet-50 border-violet-200 text-violet-600 group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 group-hover:shadow-[0_8px_20px_rgba(124,58,237,0.35)]',
+    topStripe: 'bg-violet-600',
+    hoverBorder: 'group-hover:border-violet-500/50',
+    tagBg: 'bg-violet-50/90 text-violet-800 border-violet-200/80',
+    tagDot: 'bg-violet-600',
+    aura: 'from-violet-500/30 to-purple-500/30',
+    titleHover: 'group-hover:text-violet-700',
+    ctaText: 'text-violet-700 hover:text-violet-800',
   },
 };
 
@@ -154,7 +180,7 @@ export const IndustriesSection = () => {
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 className="group relative cursor-pointer"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate(`/industries/${ind.id}`)}
               >
                 {/* Glowing Back Aura on Hover */}
                 <div
@@ -210,11 +236,11 @@ export const IndustriesSection = () => {
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        navigate('/contact');
+                        navigate(`/industries/${ind.id}`);
                       }}
                       className={`text-xs font-mono font-bold flex items-center justify-between w-full pt-1 transition-colors ${theme.ctaText}`}
                     >
-                      <span>Discuss Industry Project</span>
+                      <span>Explore Sector Architecture</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
                     </button>
                   </div>
