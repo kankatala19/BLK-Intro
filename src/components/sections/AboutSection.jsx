@@ -91,10 +91,12 @@ export const AboutSection = () => {
                 <motion.div
                   key={pillar.title}
                   variants={fadeIn('up', idx * 0.08)}
-                  className="bg-white dark:bg-dark-900 p-6 rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-crimson-600/40 transition-all space-y-4 shadow-sm hover:shadow-lg"
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                  className="bg-white p-6 rounded-2xl border border-slate-200/90 hover:border-crimson-600/40 transition-all space-y-4 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.06)] hover:shadow-xl cursor-default group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-slate-900 dark:bg-dark-800 border border-slate-800 dark:border-dark-700 flex items-center justify-center text-white shadow-md">
-                    <IconComp className="w-6 h-6 text-crimson-500" />
+                  <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-white shadow-md group-hover:bg-crimson-600 group-hover:border-crimson-600 transition-colors">
+                    <IconComp className="w-6 h-6 text-crimson-500 group-hover:text-white transition-colors" />
                   </div>
 
                   <div className="space-y-2">

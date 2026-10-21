@@ -77,7 +77,9 @@ export const IndustriesSection = () => {
               <motion.div
                 key={ind.id}
                 variants={fadeIn('up', index * 0.06)}
-                className="bg-white dark:bg-dark-900 border border-slate-200/90 dark:border-white/10 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:border-crimson-600/40 transition-all flex flex-col justify-between group"
+                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.06)] hover:shadow-xl hover:border-crimson-600/40 transition-all flex flex-col justify-between group cursor-default"
               >
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-slate-900 dark:bg-dark-800 border border-slate-800 dark:border-dark-700 flex items-center justify-center text-white shadow-md group-hover:bg-crimson-600 group-hover:border-crimson-600 transition-colors">

@@ -12,15 +12,12 @@ import {
   Megaphone,
   Briefcase,
   Layers,
-  Sun,
-  Moon,
   Sparkles,
 } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { siteConfig } from '../../data/siteConfig';
-import { useTheme } from '../../context/ThemeContext';
 
 const categoryIcons = {
   'software-development': Code2,
@@ -38,7 +35,6 @@ export const Navbar = () => {
   const dropdownRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const { theme, toggleTheme } = useTheme();
 
   // Scroll detection for header elevation
   useEffect(() => {
@@ -116,27 +112,31 @@ export const Navbar = () => {
         <Container>
           <div className="flex items-center justify-between">
             {/* Brand Logo */}
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <div className={`w-9 h-9 rounded-lg border flex items-center justify-center transition-colors shadow-inner ${
-                isHomeHero
-                  ? 'bg-slate-900 border-white/20 text-crimson-500'
-                  : 'bg-slate-100 dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-crimson-600'
-              }`}>
-                <span className="font-mono font-bold text-lg tracking-wider">
-                  B
-                </span>
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:border-crimson-500/60 transition-colors">
+                <img
+                  src="/images/logo.jpg"
+                  alt="BLK Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
                   <span className={`font-bold tracking-tight text-lg font-sans ${
-                    isHomeHero ? 'text-white' : 'text-slate-900 dark:text-white'
+                    isHomeHero ? 'text-white' : 'text-slate-900'
                   }`}>
                     {siteConfig.name}
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-crimson-600 shadow-glow-red-sm" />
+                  {/* BLK 4 Logo Brand Dots */}
+                  <div className="flex items-center gap-1 ml-0.5" title="BLK 4 Core Disciplines">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+                  </div>
                 </div>
-                <span className={`text-[10px] tracking-widest font-mono uppercase -mt-1 hidden sm:block ${
-                  isHomeHero ? 'text-slate-300' : 'text-slate-500 dark:text-muted-400'
+                <span className={`text-[10px] tracking-widest font-mono uppercase -mt-0.5 hidden sm:block ${
+                  isHomeHero ? 'text-slate-300' : 'text-slate-500'
                 }`}>
                   Software Solutions
                 </span>
@@ -270,25 +270,8 @@ export const Navbar = () => {
               })}
             </nav>
 
-            {/* Desktop Right Actions (Theme Toggle & Hire Us) */}
+            {/* Desktop Right Actions (Status & Hire Us) */}
             <div className="hidden lg:flex items-center gap-3">
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-lg border transition-colors shadow-sm ${
-                  isHomeHero
-                    ? 'bg-white/10 border-white/20 text-white hover:border-crimson-500'
-                    : 'bg-white dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600 hover:border-crimson-600/40'
-                }`}
-                aria-label={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
-                title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
-              >
-                {theme === 'light' ? (
-                  <Moon className={`w-4 h-4 ${isHomeHero ? 'text-white' : 'text-slate-700'}`} />
-                ) : (
-                  <Sun className="w-4 h-4 text-amber-400" />
-                )}
-              </button>
-
               <Badge variant="crimson" showDot={true} className="hidden xl:inline-flex text-[11px]">
                 {siteConfig.status}
               </Badge>
@@ -307,30 +290,13 @@ export const Navbar = () => {
 
             {/* Mobile / Small Screen Navbar Controls (Visible below lg: < 1024px) */}
             <div className="flex items-center gap-2 lg:hidden">
-              {/* Mobile Quick Theme Toggle */}
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-lg border transition-colors shadow-sm ${
-                  isHomeHero
-                    ? 'bg-white/10 border-white/20 text-white hover:text-crimson-400'
-                    : 'bg-white dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600'
-                }`}
-                aria-label="Toggle Theme"
-              >
-                {theme === 'light' ? (
-                  <Moon className={`w-4 h-4 ${isHomeHero ? 'text-white' : 'text-slate-700'}`} />
-                ) : (
-                  <Sun className="w-4 h-4 text-amber-400" />
-                )}
-              </button>
-
               {/* Mobile Menu Hamburger / Close Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`p-2 rounded-lg border transition-colors shadow-sm ${
                   isHomeHero
                     ? 'bg-white/10 border-white/20 text-white hover:text-crimson-400'
-                    : 'bg-white dark:bg-dark-850 border-slate-200 dark:border-dark-750 text-slate-700 dark:text-muted-300 hover:text-crimson-600'
+                    : 'bg-white border-slate-200 text-slate-700 hover:text-crimson-600 hover:bg-slate-50'
                 }`}
                 aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
               >
@@ -368,41 +334,36 @@ export const Navbar = () => {
               className="fixed top-0 right-0 bottom-0 w-full max-w-[340px] sm:max-w-[380px] bg-white dark:bg-dark-950 border-l border-slate-200 dark:border-white/10 shadow-2xl z-50 flex flex-col justify-between overflow-hidden lg:hidden"
             >
               {/* Drawer Top Header */}
-              <div className="p-5 border-b border-slate-200/80 dark:border-white/10 flex items-center justify-between bg-slate-50/70 dark:bg-dark-900/50">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center text-crimson-600 font-mono font-bold text-sm shadow-sm">
-                    B
+              <div className="p-4 border-b border-slate-200/80 flex items-center justify-between bg-slate-50/90">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl overflow-hidden bg-white border border-slate-200 shadow-sm flex items-center justify-center p-0.5">
+                    <img src="/images/logo.jpg" alt="BLK Logo" className="w-full h-full object-contain" />
                   </div>
                   <div>
-                    <span className="font-bold text-slate-900 dark:text-white text-sm font-sans block leading-none">
-                      {siteConfig.name}
-                    </span>
-                    <span className="text-[10px] text-slate-500 dark:text-muted-400 font-mono">
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-bold text-slate-900 text-sm font-sans block leading-none">
+                        {siteConfig.name}
+                      </span>
+                      <div className="flex items-center gap-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+                      </div>
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-mono mt-0.5 block">
                       Navigation
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5">
-                  <button
-                    onClick={toggleTheme}
-                    className="p-1.5 rounded-lg bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 text-slate-700 dark:text-slate-300 shadow-sm"
-                    aria-label="Toggle Theme"
-                  >
-                    {theme === 'light' ? (
-                      <Moon className="w-4 h-4" />
-                    ) : (
-                      <Sun className="w-4 h-4 text-amber-400" />
-                    )}
-                  </button>
-                  <button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-1.5 rounded-lg bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 text-slate-700 dark:text-slate-300 shadow-sm hover:text-crimson-600"
-                    aria-label="Close Drawer"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 shadow-sm hover:text-crimson-600 transition-colors"
+                  aria-label="Close Drawer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
 
               {/* Drawer Middle Navigation Links (Scrollable) */}

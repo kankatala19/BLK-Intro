@@ -13,18 +13,23 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-200/80 dark:border-white/5">
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
-            <Link to="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 flex items-center justify-center shadow-sm">
-                <span className="text-crimson-600 font-mono font-bold text-base">B</span>
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5">
+                <img src="/images/logo.jpg" alt="BLK Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-bold tracking-tight text-slate-900 dark:text-white font-sans text-lg">
+                  <span className="font-bold tracking-tight text-slate-900 font-sans text-lg">
                     {siteConfig.name}
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-crimson-600 shadow-glow-red-sm" />
+                  <div className="flex items-center gap-1 ml-0.5" title="BLK 4 Core Disciplines">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+                  </div>
                 </div>
-                <span className="text-[10px] tracking-wider text-slate-500 dark:text-muted-400 font-mono uppercase -mt-1">
+                <span className="text-[10px] tracking-wider text-slate-500 font-mono uppercase -mt-0.5">
                   {siteConfig.companyName}
                 </span>
               </div>
