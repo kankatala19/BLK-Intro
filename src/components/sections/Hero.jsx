@@ -15,40 +15,29 @@ export const Hero = () => {
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-50 dark:bg-dark-950 transition-colors w-full">
       {/* Background Image Layer: Modern Engineering Collaboration */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-        {/* Collaborative Team Photo */}
+        {/* Collaborative Team Photo - Highlighted & Crisp */}
         <motion.img
           src="/images/blk-img.jpg"
           alt="BLK Engineering Team"
-          initial={{ scale: 1.08, opacity: 0 }}
-          animate={{ scale: [1.08, 1.02, 1.06], opacity: 1 }}
+          initial={{ scale: 1.05, opacity: 0 }}
+          animate={{ scale: [1.05, 1.01, 1.04], opacity: 1 }}
           transition={{
-            scale: { duration: 24, repeat: Infinity, ease: "easeInOut" },
-            opacity: { duration: 1.2, ease: "easeOut" }
+            scale: { duration: 22, repeat: Infinity, ease: "easeInOut" },
+            opacity: { duration: 1, ease: "easeOut" }
           }}
-          className="w-full h-full object-cover object-[center_35%] opacity-25 lg:opacity-35 dark:opacity-15 brightness-[1.02] contrast-[1.05] dark:brightness-75 dark:contrast-125 dark:grayscale-[25%] transition-all"
+          className="w-full h-full object-cover object-[80%_35%] lg:object-[85%_30%] opacity-80 lg:opacity-90 dark:opacity-35 brightness-[1.03] contrast-[1.10] saturate-[1.08] dark:brightness-75 dark:contrast-125 transition-all"
         />
 
-        {/* Ambient Gradient Overlays for High-Contrast Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/90 to-slate-50/50 dark:from-dark-950 dark:via-dark-950/95 dark:to-dark-950/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/90 via-transparent to-slate-50 dark:from-dark-950/90 dark:via-transparent dark:to-dark-950" />
+        {/* Ambient Gradient Overlays: Clear text contrast on left, fully highlighted image on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/92 via-40% md:via-45% to-slate-50/15 dark:from-dark-950 dark:via-dark-950/95 dark:via-40% dark:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/70 via-transparent via-15% to-slate-50/80 dark:from-dark-950/70 dark:via-transparent dark:to-dark-950" />
 
-        {/* Tech Grid Overlay over Photo */}
-        <div className="absolute inset-0 bg-tech-grid opacity-30 dark:opacity-20 mix-blend-overlay" />
+        {/* Subtle Tech Grid Overlay */}
+        <div className="absolute inset-0 bg-tech-grid opacity-20 dark:opacity-15 mix-blend-overlay" />
 
-        {/* Crimson Ambient Glows */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] h-[250px] sm:h-[350px] lg:h-[400px] bg-crimson-600/10 dark:bg-crimson-700/15 rounded-full blur-[90px] sm:blur-[140px]" />
-        <div className="absolute bottom-10 -left-10 w-48 sm:w-[300px] h-48 sm:h-[300px] bg-slate-200/50 dark:bg-dark-850/50 rounded-full blur-[90px] sm:blur-[120px]" />
-
-        {/* Floating Atmospheric Crimson Shimmer */}
-        <motion.div
-          animate={{
-            opacity: [0.15, 0.35, 0.15],
-            x: ['-5%', '5%', '-5%'],
-            y: ['0%', '-4%', '0%']
-          }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -top-10 right-1/4 w-[500px] h-[300px] bg-gradient-to-br from-crimson-500/20 via-crimson-600/5 to-transparent rounded-full blur-3xl"
-        />
+        {/* Image Highlight Flare & Crimson Radiance */}
+        <div className="absolute top-1/3 right-4 lg:right-16 w-[450px] sm:w-[600px] h-[350px] sm:h-[450px] bg-gradient-to-bl from-crimson-600/15 via-crimson-500/10 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute bottom-6 left-1/4 w-[350px] h-[250px] bg-crimson-600/8 dark:bg-crimson-700/12 rounded-full blur-[90px]" />
       </div>
 
       <Container className="relative z-10 w-full">
@@ -149,25 +138,11 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="w-full lg:col-span-5 relative"
           >
-            {/* Floating Studio Pulse Pill */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="absolute -top-3.5 right-3 sm:right-5 z-20 glass-panel py-1 px-3 rounded-full border border-slate-200/90 dark:border-white/10 shadow-md flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-slate-700 dark:text-muted-200 backdrop-blur-md"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="font-semibold text-slate-800 dark:text-white">Active Engineering Squad</span>
-            </motion.div>
-
             {/* Outer Glow Halo */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-crimson-500/20 to-transparent rounded-2xl blur-xl opacity-50 pointer-events-none" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-crimson-500/25 to-transparent rounded-2xl blur-xl opacity-60 pointer-events-none" />
 
             {/* Main Interactive Glass Console */}
-            <div className="relative glass-panel rounded-2xl border border-slate-200 dark:border-white/10 shadow-lg dark:shadow-card-dark overflow-hidden bg-white/95 dark:bg-dark-900/90 backdrop-blur-xl w-full">
+            <div className="relative glass-panel rounded-2xl border border-white/80 dark:border-white/10 shadow-xl dark:shadow-card-dark overflow-hidden bg-white/85 dark:bg-dark-900/85 backdrop-blur-xl w-full">
               {/* Terminal Window Header */}
               <div className="flex items-center justify-between px-4 py-3 bg-slate-100/90 dark:bg-dark-850/80 border-b border-slate-200/80 dark:border-white/5">
                 <div className="flex items-center gap-2">
