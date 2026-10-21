@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from '../components/ui/Container';
 import { Badge } from '../components/ui/Badge';
 import { ContactSection } from '../components/sections/ContactSection';
-import { Shield, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
+import { CurtainReveal } from '../components/common/CurtainReveal';
+import { Shield, Clock, CheckCircle2, MessageSquare, Play } from 'lucide-react';
 
 export const ContactPage = () => {
+  const [revealKey, setRevealKey] = useState(1);
+
   return (
-    <div className="pt-28 pb-20 w-full max-w-full overflow-x-hidden">
+    <div className="pt-28 pb-20 w-full max-w-full overflow-x-hidden relative">
+      {/* Animated Human Character Dragging Curtain Reveal */}
+      <CurtainReveal key={revealKey} />
+
       {/* Page Header */}
       <section className="py-16 md:py-24 bg-slate-50 dark:bg-dark-950 border-b border-slate-200/80 dark:border-white/5 relative w-full overflow-hidden">
         <div className="absolute inset-0 bg-tech-grid opacity-25 pointer-events-none" />
         <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6 w-full">
-          <Badge variant="crimson" showDot={true} className="py-1 px-3.5 text-xs font-mono">
-            GET IN TOUCH // HIRE US
-          </Badge>
+          <div className="flex items-center justify-center gap-2.5 flex-wrap">
+            <Badge variant="crimson" showDot={true} className="py-1 px-3.5 text-xs font-mono">
+              GET IN TOUCH // HIRE US
+            </Badge>
+            <button
+              type="button"
+              onClick={() => setRevealKey((prev) => prev + 1)}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/70 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 text-[11px] font-mono text-slate-700 dark:text-slate-200 border border-slate-300/80 dark:border-white/15 transition-all shadow-sm cursor-pointer"
+              title="Replay Curtain Animation"
+            >
+              <Play className="w-3 h-3 text-crimson-600 fill-crimson-600" />
+              <span>Replay Curtain</span>
+            </button>
+          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
             Ready to Build With an <span className="text-gradient-crimson">Agile Partner?</span>
           </h1>
