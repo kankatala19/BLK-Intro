@@ -13,10 +13,43 @@ export const Hero = () => {
 
   return (
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-50 dark:bg-dark-950 transition-colors w-full">
-      {/* Background ambient radial gradients & technical grids */}
-      <div className="absolute inset-0 bg-tech-grid opacity-30 dark:opacity-25 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] h-[250px] sm:h-[350px] lg:h-[400px] bg-crimson-600/10 dark:bg-crimson-700/15 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 -left-10 w-48 sm:w-[300px] h-48 sm:h-[300px] bg-slate-200/50 dark:bg-dark-850/50 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none" />
+      {/* Background Image Layer: Modern Engineering Collaboration */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Collaborative Team Photo */}
+        <motion.img
+          src="/images/blk-img.jpg"
+          alt="BLK Engineering Team"
+          initial={{ scale: 1.08, opacity: 0 }}
+          animate={{ scale: [1.08, 1.02, 1.06], opacity: 1 }}
+          transition={{
+            scale: { duration: 24, repeat: Infinity, ease: "easeInOut" },
+            opacity: { duration: 1.2, ease: "easeOut" }
+          }}
+          className="w-full h-full object-cover object-[center_35%] opacity-25 lg:opacity-35 dark:opacity-15 brightness-[1.02] contrast-[1.05] dark:brightness-75 dark:contrast-125 dark:grayscale-[25%] transition-all"
+        />
+
+        {/* Ambient Gradient Overlays for High-Contrast Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/90 to-slate-50/50 dark:from-dark-950 dark:via-dark-950/95 dark:to-dark-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/90 via-transparent to-slate-50 dark:from-dark-950/90 dark:via-transparent dark:to-dark-950" />
+
+        {/* Tech Grid Overlay over Photo */}
+        <div className="absolute inset-0 bg-tech-grid opacity-30 dark:opacity-20 mix-blend-overlay" />
+
+        {/* Crimson Ambient Glows */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] h-[250px] sm:h-[350px] lg:h-[400px] bg-crimson-600/10 dark:bg-crimson-700/15 rounded-full blur-[90px] sm:blur-[140px]" />
+        <div className="absolute bottom-10 -left-10 w-48 sm:w-[300px] h-48 sm:h-[300px] bg-slate-200/50 dark:bg-dark-850/50 rounded-full blur-[90px] sm:blur-[120px]" />
+
+        {/* Floating Atmospheric Crimson Shimmer */}
+        <motion.div
+          animate={{
+            opacity: [0.15, 0.35, 0.15],
+            x: ['-5%', '5%', '-5%'],
+            y: ['0%', '-4%', '0%']
+          }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -top-10 right-1/4 w-[500px] h-[300px] bg-gradient-to-br from-crimson-500/20 via-crimson-600/5 to-transparent rounded-full blur-3xl"
+        />
+      </div>
 
       <Container className="relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center w-full">
@@ -116,6 +149,20 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="w-full lg:col-span-5 relative"
           >
+            {/* Floating Studio Pulse Pill */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="absolute -top-3.5 right-3 sm:right-5 z-20 glass-panel py-1 px-3 rounded-full border border-slate-200/90 dark:border-white/10 shadow-md flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-slate-700 dark:text-muted-200 backdrop-blur-md"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="font-semibold text-slate-800 dark:text-white">Active Engineering Squad</span>
+            </motion.div>
+
             {/* Outer Glow Halo */}
             <div className="absolute -inset-1 bg-gradient-to-r from-crimson-500/20 to-transparent rounded-2xl blur-xl opacity-50 pointer-events-none" />
 
