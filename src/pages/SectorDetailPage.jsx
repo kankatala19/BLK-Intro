@@ -81,23 +81,20 @@ export const SectorDetailPage = () => {
                   className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center p-2.5 shadow-2xl relative group overflow-hidden"
                   title={`${sector.name} Logo`}
                 >
-                  <img
-                    src={sector.logo}
-                    alt={`${sector.name} Logo`}
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      // If specific logo image file not yet placed, cleanly show the styled sector icon
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.parentElement.querySelector('.sector-fallback-icon');
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
-                  />
-                  <div
-                    className="sector-fallback-icon hidden w-full h-full items-center justify-center text-white"
-                    style={{ color: sector.color }}
-                  >
-                    <IconComp className="w-8 h-8" />
-                  </div>
+                  {sector.logo && !sector.logo.includes('sectors/') ? (
+                    <img
+                      src={sector.logo}
+                      alt={`${sector.name} Logo`}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full flex items-center justify-center text-white"
+                      style={{ color: sector.color }}
+                    >
+                      <IconComp className="w-8 h-8" />
+                    </div>
+                  )}
                 </div>
 
                 <div className="space-y-1">

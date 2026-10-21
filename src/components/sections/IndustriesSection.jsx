@@ -182,8 +182,31 @@ export const IndustriesSection = () => {
                 >
                   {/* Top Colored Highlight Line */}
                   <div
-                    className={`absolute top-0 left-0 h-[3px] w-0 ${theme.topStripe} group-hover:w-full transition-all duration-400 ease-out`}
+                    className={`absolute top-0 left-0 h-[3px] w-0 ${theme.topStripe} group-hover:w-full transition-all duration-400 ease-out z-10`}
                   />
+
+                  {/* Sector Image Header */}
+                  {ind.image && (
+                    <div className="relative h-44 -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 mb-5 overflow-hidden bg-slate-950">
+                      <img
+                        src={ind.image}
+                        alt={ind.name}
+                        className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                        onError={(e) => {
+                          e.currentTarget.parentElement.style.display = 'none';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
+                          {ind.badge || 'Practice Group'}
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-200 bg-white/15 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                          Dedicated Page
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="space-y-4">
                     {/* Icon */}

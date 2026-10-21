@@ -215,7 +215,7 @@ export const siteConfig = {
       description: "Secure customer portals, automated ledger reconciliations, CRM integrations, and compliance-ready data handling engineered for high concurrency.",
       icon: "Coins",
       color: "#10B981",
-      image: "/images/sectors/fintech.jpg",
+      image: "/images/financial.jpg",
       logo: "/images/sectors/fintech-logo.png",
       focus: ["CRM & ERP Integration", "Automated Workflows", "Data Encryption", "Audit Trails"],
       challenges: [
@@ -257,7 +257,7 @@ export const siteConfig = {
       description: "Patient workflow management, appointment systems, secure records, and accessible digital touchpoints built under strict privacy standards.",
       icon: "Activity",
       color: "#0EA5E9",
-      image: "/images/sectors/healthtech.jpg",
+      image: "/images/healthcare.jpg",
       logo: "/images/sectors/healthtech-logo.png",
       focus: ["Privacy First", "Accessible UI", "Workflow Automation", "Telehealth Systems"],
       challenges: [
@@ -299,7 +299,7 @@ export const siteConfig = {
       description: "Bespoke digital storefronts, inventory synchronization, lifecycle marketing, and PPC acquisition engineered for high average order values.",
       icon: "ShoppingBag",
       color: "#F59E0B",
-      image: "/images/sectors/ecommerce.jpg",
+      image: "/images/ecommerce.jpg",
       logo: "/images/sectors/ecommerce-logo.png",
       focus: ["Headless Commerce", "PPC Advertising", "SEO Optimization", "Fast Checkout"],
       challenges: [
@@ -341,7 +341,7 @@ export const siteConfig = {
       description: "Rapid MVP development, design systems, AI feature integration, and scalable cloud foundations for seed to Series B organizations.",
       icon: "Rocket",
       color: "#8B5CF6",
-      image: "/images/sectors/saas.jpg",
+      image: "/images/startup.png",
       logo: "/images/sectors/saas-logo.png",
       focus: ["Rapid MVP Sprints", "AI Integration", "Modern Tech Stack", "Cloud Scaling"],
       challenges: [
@@ -383,7 +383,7 @@ export const siteConfig = {
       description: "Internal tracking dashboards, resource planning tools, automated notifications, and dispatch portals engineered for real-time operations.",
       icon: "Truck",
       color: "#2563EB",
-      image: "/images/sectors/logistics.jpg",
+      image: "/images/logistics.jpg",
       logo: "/images/sectors/logistics-logo.png",
       focus: ["ERP Systems", "Real-Time Telemetry", "Custom Dashboards", "Route Optimization"],
       challenges: [
@@ -425,7 +425,7 @@ export const siteConfig = {
       description: "Learning portals, interactive student dashboards, automated lifecycle onboarding, and digital branding engineered for high engagement.",
       icon: "GraduationCap",
       color: "#DC2626",
-      image: "/images/sectors/education.jpg",
+      image: "/images/education.jpg",
       logo: "/images/sectors/education-logo.png",
       focus: ["Interactive UX", "Lifecycle Campaigns", "Cohort Management", "Video Delivery"],
       challenges: [
@@ -467,7 +467,7 @@ export const siteConfig = {
       description: "Interactive real estate portals, 3D property virtual tours, automated lease agreements, and multi-tenant management systems.",
       icon: "Briefcase",
       color: "#7C3AED",
-      image: "/images/sectors/real-estate.jpg",
+      image: "/images/realestate.jpg",
       logo: "/images/sectors/real-estate-logo.png",
       focus: ["Interactive Listings", "Tenant Portals", "Document Automation", "CRM Integration"],
       challenges: [
