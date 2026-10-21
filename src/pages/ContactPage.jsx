@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { Badge } from '../components/ui/Badge';
 import { ContactSection } from '../components/sections/ContactSection';
-import { CurtainManReveal } from '../components/common/CurtainManReveal';
+import { CurtainReveal } from '../components/common/CurtainReveal';
 import { Shield, Clock, CheckCircle2, MessageSquare, Play } from 'lucide-react';
 
 export const ContactPage = () => {
@@ -21,9 +21,15 @@ export const ContactPage = () => {
     <div className="w-full max-w-full overflow-x-hidden relative min-h-screen bg-slate-50 dark:bg-dark-950">
       {/* Lightweight Translucent Curtain with Animated Man Pulling Down */}
       {!isAnimationDone && (
-        <CurtainManReveal
+        <CurtainReveal
           key={`curtain-${revealKey}`}
-          onStageChange={(stage) => setRevealStage(stage)}
+          onProgress={(prog) => {
+            if (prog >= 1.0) setRevealStage(5);
+            else if (prog >= 0.8) setRevealStage(4);
+            else if (prog >= 0.6) setRevealStage(3);
+            else if (prog >= 0.4) setRevealStage(2);
+            else if (prog >= 0.2) setRevealStage(1);
+          }}
           onComplete={() => {
             setRevealStage(5);
             setIsAnimationDone(true);
