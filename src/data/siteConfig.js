@@ -52,7 +52,7 @@ export const siteConfig = {
         {
           name: "Quality Assurance (QA)",
           description: "Comprehensive Manual, Automated, Security, and Performance testing suites.",
-          path: "/services#qa-framework",
+          path: "/services#software-development",
         },
         {
           name: "High-Throughput APIs & Microservices",
@@ -151,14 +151,6 @@ export const siteConfig = {
         },
       ],
     },
-  ],
-
-  // Quality Assurance Sub-Pillars for the Services section
-  qaSpecialties: [
-    { title: "Manual Testing", detail: "Exhaustive exploratory, regression, and cross-browser visual verification." },
-    { title: "Automated Testing", detail: "End-to-end integration suites using Playwright, Cypress, and Jest." },
-    { title: "Security Testing", detail: "Vulnerability scanning, dependency audits, and OWASP compliance." },
-    { title: "Performance Testing", detail: "Load benchmarking, stress testing, and real-user latency profiling." },
   ],
 
   hero: {

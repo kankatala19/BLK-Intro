@@ -28,7 +28,7 @@ export const ServicesPage = () => {
         </Container>
       </section>
 
-      {/* Services Section with Category Tabs & QA Framework */}
+      {/* Services Section with Category Tabs */}
       <ServicesSection />
 
       {/* Consultation Banner */}

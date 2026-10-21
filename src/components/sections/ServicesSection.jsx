@@ -8,8 +8,6 @@ import {
   Megaphone,
   Check,
   ArrowRight,
-  ShieldCheck,
-  CheckCircle2,
 } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Badge } from '../ui/Badge';
@@ -166,51 +164,6 @@ export const ServicesSection = () => {
               );
             })}
           </AnimatePresence>
-
-          {/* Dedicated Quality Assurance Breakdown Box */}
-          <div className="glass-panel rounded-2xl p-7 sm:p-9 border border-slate-200 dark:border-white/10 relative overflow-hidden bg-white/95 dark:bg-dark-900/80 shadow-md">
-            <div className="absolute top-0 left-0 w-2 h-full bg-crimson-600" />
-
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-white/5">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-crimson-600" />
-                  <span className="text-xs font-mono text-crimson-600 uppercase tracking-widest font-semibold">
-                    Core Engineering Standard
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  Comprehensive Quality Assurance (QA) Framework
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-muted-400 max-w-2xl leading-relaxed">
-                  Every product engineered by BLK Software Solutions undergoes strict multi-layer testing
-                  protocols before deployment to ensure resilience and zero regressions.
-                </p>
-              </div>
-
-              <Button variant="secondary" size="md" onClick={() => navigate('/contact')} className="shrink-0 w-full sm:w-auto justify-center">
-                Request QA Audit
-              </Button>
-            </div>
-
-            {/* 4 QA Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
-              {siteConfig.qaSpecialties.map((qa) => (
-                <div
-                  key={qa.title}
-                  className="p-4 rounded-xl bg-slate-50 dark:bg-dark-850/60 border border-slate-200/80 dark:border-white/5 space-y-2"
-                >
-                  <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-crimson-600 shrink-0" />
-                    <span>{qa.title}</span>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-muted-400 leading-relaxed">
-                    {qa.detail}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </Container>
     </section>
