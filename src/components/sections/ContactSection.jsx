@@ -14,7 +14,7 @@ import { Container } from '../ui/Container';
 import { siteConfig } from '../../data/siteConfig';
 import { fadeIn, staggerContainer, viewportOnce } from '../../utils/motion';
 
-export const ContactSection = () => {
+export const ContactSection = ({ revealStage = 5 }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -59,44 +59,36 @@ export const ContactSection = () => {
       <Container className="relative z-10 w-full">
         {/* Header */}
         <motion.div
-          variants={staggerContainer(0.1, 0.1)}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
+          initial={{ opacity: 0, y: 15 }}
+          animate={revealStage >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-3xl mx-auto space-y-4 mb-16"
         >
-          <motion.div variants={fadeIn('down', 0.1)} className="flex justify-center">
+          <div className="flex justify-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-300 shadow-sm text-xs font-mono text-slate-800">
               <span className="w-2 h-2 rounded-full bg-crimson-600 shadow-[0_0_8px_rgba(220,38,38,0.7)]" />
               <span className="font-semibold uppercase tracking-wider text-[11px]">
                 {siteConfig.contact.badge}
               </span>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.h2
-            variants={fadeIn('up', 0.2)}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900"
-          >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
             {siteConfig.contact.title}
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            variants={fadeIn('up', 0.3)}
-            className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto"
-          >
+          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
             {siteConfig.contact.description}
-          </motion.p>
+          </p>
         </motion.div>
 
         {/* Contact Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start w-full">
-          {/* Left Column: Direct Inquiries Console */}
+          {/* Left Column: Direct Inquiries Console (Revealed at Stage 3) */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={viewportOnce}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={revealStage >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="w-full lg:col-span-5 space-y-6"
           >
             <div className="bg-[#0B0F19] rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6 shadow-2xl text-white relative overflow-hidden">
@@ -171,12 +163,11 @@ export const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Form */}
+          {/* Right Column: Form (Revealed at Stage 4) */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={viewportOnce}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={revealStage >= 4 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="w-full lg:col-span-7"
           >
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-300/80 shadow-2xl relative overflow-hidden">
